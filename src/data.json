@@ -23,12 +23,12 @@
      {
         "id":"il1",
         "serviceName": "Spotify",
-        "imgSrc":"/src/spotify.svg"
+        "imgSrc": "https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png"
      },
      {
         "id":"il2",
         "serviceName": "Youtube Music",
-        "imgSrc":"/src/youtube.svg"
+        "imgSrc": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/159px-YouTube_full-color_icon_%282017%29.svg.png"
      }
   ]
 }
