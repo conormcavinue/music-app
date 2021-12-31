@@ -1,0 +1,34 @@
+{
+  "albums":[
+     {
+        "id":"a1",
+        "albumName":"This is an album",
+        "links":[
+          {
+            "id":"l1",
+            "musicServiceId":"ms1",
+            "url":"https://open.spotify.com/album/6RrfC1hxrS4ANiOQPTtCs3?si=3G_fYCvNSlqx3GcwQoXJAg"
+         },
+         {
+            "id":"l2",
+            "musicServiceId":"ms2",
+            "url":"https://music.youtube.com/playlist?list=OLAK5uy_mL_qvbSjM2WJoav8nnwlrEgBrG3PLnWTo&feature=share"
+         }
+        ],
+        "releaseYear":2016,
+        "publishedAt":"2022-02-02"
+     }
+  ],
+  "musicServices":[
+     {
+        "id":"il1",
+        "serviceName": "Spotify",
+        "imgSrc":"/src/spotify.svg"
+     },
+     {
+        "id":"il2",
+        "serviceName": "Youtube Music",
+        "imgSrc":"/src/youtube.svg"
+     }
+  ]
+}
