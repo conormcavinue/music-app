@@ -1,59 +1,58 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <div v-for="album, key in albums" :key="key" class="card d-flex">
-    <div class="row">
-      <div class="col-md-6" v-for="link, key in album.links" :key="key">
-        <div v-html="generatedLink(link)"></div>
+    <div class ="container">
+        <div class="align-items-center">
+            <label for="formMax">Albums Released Before</label>
+            <input type="text" id="formMax" class="form-control mx-2 text-center"
+                    style="width:60px;" v-model="maxYear">
+            <input type="range" class="custom-range" min="1950" max="2022" v-model="maxYear">
+        </div>
+        <div class="row">
+            <div v-for="album, key in albumsReleasedBeforeYear" :key="key" class="card d-flex col-sm-12 col-md-3 mx-1 mt-3">
+              <div class="row mx-auto pt-2">
+                <img style="height: 250px;" :src="album.imageLink" />
+              </div>
+              <div class="mx-auto">
+                <h3>{{ album.albumName }}</h3>
+                <h4>{{ album.albumArtist }}</h4>
+                <p>{{ album.publishedAt }}</p>
+              </div>
+              <div class="row mx-auto pb-2">
+                <div v-for="link, key in album.links" :key="key" class="col-md-6">
+                  <div v-html="generatedLink(link)"></div>
+                </div>
+              </div>
+          </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
+import sourceData from '@/data.json'
 
 export default {
   name: 'App',
   data: function () {
     return {
-      albums: [
-        {
-          id: 'a1',
-          albumName: 'This is an album',
-          links: [
-            {
-              id: 'l2',
-              imageLinkId: 'il1',
-              url: 'https://open.spotify.com/album/6RrfC1hxrS4ANiOQPTtCs3?si=3G_fYCvNSlqx3GcwQoXJAg',
-              albumId: 'a1'
-            },
-            {
-              id: 'l2',
-              imageLinkId: 'il2',
-              url: 'https://music.youtube.com/playlist?list=OLAK5uy_mL_qvbSjM2WJoav8nnwlrEgBrG3PLnWTo&feature=share',
-              albumId: 'a1'
-            }
-          ],
-          releaseYear: 2016,
-          publishedAt: '2022-02-02'
-        }
-      ],
-      musicServices: [
-        {
-          id: 'il1',
-          serviceName: 'Spotify',
-          imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png'
-        },
-        {
-          id: 'il2',
-          serviceName: 'Youtube Music',
-          imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/159px-YouTube_full-color_icon_%282017%29.svg.png'
-        }
-      ]
+      maxYear: 2022,
+      albums: sourceData.albums,
+      musicServices: sourceData.musicServices
     }
   },
   methods: {
     generatedLink: function (link) {
-      return '<a href="' + link.url + '" target="_blank"><img src="' + this.musicServices.find(x => x.id === link.imageLinkId).imgSrc + '" /></a>'
+      return '<a href="' + link.url + '" target="_blank"><img height="50px" width="50px" src="' + this.musicServices.find(x => x.id === link.musicServiceId).imgSrc + '" /></a>'
+    },
+    enter: function (el) {
+      el.className =
+          'animate__animated animate__fadeInRight'
+    },
+    leave: function (el) {
+      el.className = 'card d-flex col-sm-12 col-md-3 mx-1 mt-3 animate__animated animate__fadeOutRight'
+    }
+  },
+  computed: {
+    albumsReleasedBeforeYear: function () {
+      return this.albums.filter(x => x.releaseYear <= this.maxYear)
     }
   }
 }

@@ -1,34 +1,82 @@
 {
-  "albums":[
-     {
-        "id":"a1",
-        "albumName":"This is an album",
-        "links":[
-          {
-            "id":"l1",
-            "musicServiceId":"ms1",
-            "url":"https://open.spotify.com/album/6RrfC1hxrS4ANiOQPTtCs3?si=3G_fYCvNSlqx3GcwQoXJAg"
-         },
-         {
-            "id":"l2",
-            "musicServiceId":"ms2",
-            "url":"https://music.youtube.com/playlist?list=OLAK5uy_mL_qvbSjM2WJoav8nnwlrEgBrG3PLnWTo&feature=share"
-         }
-        ],
-        "releaseYear":2016,
-        "publishedAt":"2022-02-02"
-     }
+  "albums": [
+    {
+      "id":"a1",
+      "albumName":"Passover",
+      "albumArtist":"The Black Angels",
+      "links":[
+        {
+          "id":"l2",
+          "musicServiceId":"il1",
+          "url":"https://open.spotify.com/album/6WYCzTU5HEw63DbtbNupsA?si=JzEiWoHSR46DaUWdBewMXQ",
+          "albumId":"a1"
+        },
+        {
+          "id":"l2",
+          "musicServiceId":"il2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_laBjc-_MNgnZkQbZo1lZMJesr0H1U01Fg&feature=share",
+          "albumId":"a1"
+        }
+      ],
+      "imageLink":"https://media.pitchfork.com/photos/5929aba613d1975652139c3e/1:1/w_320/ab6c6ba6.jpg",
+      "releaseYear":2006,
+      "publishedAt":1641081600
+    },
+    {
+      "id":"a2",
+      "albumName":"Home",
+      "albumArtist":"Blackmill",
+      "links":[
+        {
+          "id":"l2",
+          "musicServiceId":"il1",
+          "url":"https://open.spotify.com/album/4b6wQfVQTpMNTwGo7ZSfBY?si=cmTXyw17SHCQRa5mkcklQw",
+          "albumId":"a1"
+        },
+        {
+          "id":"l2",
+          "musicServiceId":"il2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_nvXailCnTxnRkGgqyZW3Prg4nOG5Z7bgA",
+          "albumId":"a1"
+        }
+      ],
+      "imageLink":"https://i.scdn.co/image/ab67616d0000b273c2cb5a8eb339c8a6bbf912df",
+      "releaseYear":2016,
+      "publishedAt":1641686400
+    },
+    {
+      "id":"a3",
+      "albumName":"Crystal Machete",
+      "albumArtist":"Wes Borland",
+      "links":[
+        {
+          "id":"l2",
+          "musicServiceId":"il1",
+          "url":"https://open.spotify.com/album/6RrfC1hxrS4ANiOQPTtCs3?si=3G_fYCvNSlqx3GcwQoXJAg",
+          "albumId":"a1"
+        },
+        {
+          "id":"l2",
+          "musicServiceId":"il2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_mL_qvbSjM2WJoav8nnwlrEgBrG3PLnWTo&feature=share",
+          "albumId":"a1"
+        }
+      ],
+      "imageLink":"https://d1gdi8qinx8x49.cloudfront.net/540x540/103529.jpeg",
+      "releaseYear":2016,
+      "publishedAt":1642291200
+    }
   ],
-  "musicServices":[
-     {
-        "id":"il1",
-        "serviceName": "Spotify",
-        "imgSrc": "https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png"
-     },
-     {
-        "id":"il2",
-        "serviceName": "Youtube Music",
-        "imgSrc": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/159px-YouTube_full-color_icon_%282017%29.svg.png"
-     }
+  "musicServices": [
+    {
+      "id": "il1",
+      "serviceName": "Spotify",
+      "imgSrc": "https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png"
+    },
+    {
+      "id": "il2",
+      "serviceName": "Youtube Music",
+      "imgSrc": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/159px-YouTube_full-color_icon_%282017%29.svg.png"
+    }
   ]
 }
