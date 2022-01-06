@@ -20,6 +20,7 @@
       ],
       "imageLink":"https://media.pitchfork.com/photos/5929aba613d1975652139c3e/1:1/w_320/ab6c6ba6.jpg",
       "releaseYear":2006,
+      "albumVote": 0,
       "publishedAt":1641081600
     },
     {
@@ -41,7 +42,8 @@
         }
       ],
       "imageLink":"https://i.scdn.co/image/ab67616d0000b273c2cb5a8eb339c8a6bbf912df",
-      "releaseYear":2016,
+      "releaseYear":2021,
+      "albumVote": 0,
       "publishedAt":1641686400
     },
     {
@@ -64,6 +66,7 @@
       ],
       "imageLink":"https://d1gdi8qinx8x49.cloudfront.net/540x540/103529.jpeg",
       "releaseYear":2016,
+      "albumVote": 0,
       "publishedAt":1642291200
     }
   ],
