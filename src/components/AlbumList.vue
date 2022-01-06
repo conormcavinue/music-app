@@ -18,10 +18,10 @@
               </div>
               <div class="row mb-2">
                 <div class="col-md-6">
-                  <font-awesome-icon @click="this.$emit('albumVote', -1, album.id)" :icon="thumbsDownIcon(album.id)" size="2x" />
+                  <font-awesome-icon @click="this.$emit('albumVote', -1, album.id)" class="thumbsDownClass" :icon="thumbsDownIcon(album.id)" size="2x" />
                 </div>
                 <div class="col-md-6">
-                  <font-awesome-icon @click="this.$emit('albumVote', 1, album.id)" :icon="thumbsUpIcon(album.id)" size="2x" />
+                  <font-awesome-icon @click="this.$emit('albumVote', 1, album.id)" class="thumbsUpClass" :icon="thumbsUpIcon(album.id)" size="2x" />
                 </div>
               </div>
               <div class="row mx-auto pb-2">
@@ -72,5 +72,11 @@ export default {
 </script>
 
 <style scoped>
+  .thumbsDownClass {
+    color: red
+  }
 
+  .thumbsUpClass {
+    color: green
+  }
 </style>
