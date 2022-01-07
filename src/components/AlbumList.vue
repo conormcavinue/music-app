@@ -7,28 +7,10 @@
             <input type="range" class="custom-range" min="1950" max="2022" v-model="maxYear">
         </div>
         <div class="row">
-            <div v-for="album, key in albumsReleasedBeforeYear" :key="key" class="card d-flex col-sm-12 col-md-3 mx-1 mt-3">
-              <div class="row mx-auto pt-2">
-                <img style="height: 250px;" :src="album.imageLink" />
-              </div>
-              <div class="mx-auto">
-                <h3>{{ album.albumName }}</h3>
-                <h4>{{ album.albumArtist }}</h4>
-                <p>{{ epochToDate(album.publishedAt) }}</p>
-              </div>
-              <div class="row mb-2">
-                <div class="col-md-6">
-                  <font-awesome-icon @click="this.$emit('albumVote', -1, album.id)" class="thumbsDownClass" :icon="thumbsDownIcon(album.id)" size="2x" />
-                </div>
-                <div class="col-md-6">
-                  <font-awesome-icon @click="this.$emit('albumVote', 1, album.id)" class="thumbsUpClass" :icon="thumbsUpIcon(album.id)" size="2x" />
-                </div>
-              </div>
-              <div class="row mx-auto pb-2">
-                <div v-for="link, key in album.links" :key="key" class="col-md-6">
-                  <div v-html="generatedLink(link)"></div>
-                </div>
-              </div>
+            <div v-for="album in albumsReleasedBeforeYear" :key="album.id" class="card d-flex col-sm-12 col-md-3 mx-1 mt-3">
+              <album-card
+                :albumDetails="album"
+              />
           </div>
       </div>
     </div>
@@ -36,8 +18,12 @@
 
 <script>
 import moment from 'moment'
+import AlbumCard from './AlbumCard.vue'
 
 export default {
+  components: {
+    AlbumCard
+  },
   props: ['albums', 'musicServices'],
   data: function () {
     return {
@@ -72,11 +58,5 @@ export default {
 </script>
 
 <style scoped>
-  .thumbsDownClass {
-    color: red
-  }
 
-  .thumbsUpClass {
-    color: green
-  }
 </style>
