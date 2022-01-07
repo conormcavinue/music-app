@@ -13,8 +13,8 @@
           <transition-group
             tag="div"
             class="row"
-            enter-active-class="animate__animated animate__fadeInDown"
-            leave-active-class="animate__animated animate__fadeOutUp"
+            enter-active-class="animate__animated animate__fadeIn"
+            leave-active-class="animate__animated animate__fadeOut"
           >
             <div v-for="album in filteredAlbums" :key="album.id" class="card d-flex col-sm-12 col-md-3 mx-1 mt-3">
               <album-card
