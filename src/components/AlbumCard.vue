@@ -9,10 +9,10 @@
   </div>
   <div class="row mb-2">
     <div class="col-md-6">
-      <font-awesome-icon @click="this.$parent.$emit('albumVote', -1, albumDetails.id)" class="thumbsDownClass" :icon="$parent.thumbsDownIcon(albumDetails.id)" size="2x" />
+      <font-awesome-icon @click="this.$parent.$emit('albumVote', -1, albumDetails.id)" class="thumbsDownClass" :icon="thumbsDownIcon" size="2x" />
     </div>
     <div class="col-md-6">
-      <font-awesome-icon @click="this.$parent.$emit('albumVote', 1, albumDetails.id)" class="thumbsUpClass" :icon="$parent.thumbsUpIcon(albumDetails.id)" size="2x" />
+      <font-awesome-icon @click="this.$parent.$emit('albumVote', 1, albumDetails.id)" class="thumbsUpClass" :icon="thumbsUpIcon" size="2x" />
     </div>
   </div>
   <div class="row mx-auto pb-2">
@@ -24,7 +24,15 @@
 
 <script>
 export default {
-  props: ['albumDetails']
+  props: ['albumDetails'],
+  computed: {
+    thumbsDownIcon: function () {
+      return this.albumDetails.albumVote === -1 ? ['fas', 'thumbs-down'] : ['far', 'thumbs-down']
+    },
+    thumbsUpIcon: function () {
+      return this.albumDetails.albumVote === 1 ? ['fas', 'thumbs-up'] : ['far', 'thumbs-up']
+    }
+  }
 }
 </script>
 
