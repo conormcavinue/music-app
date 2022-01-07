@@ -5,19 +5,19 @@
   <div class="mx-auto">
     <h3>{{ albumDetails.albumName }}</h3>
     <h4>{{ albumDetails.albumArtist }}</h4>
-    <p>{{ $parent.epochToDate(albumDetails.publishedAt) }}</p>
+    <p>{{ $parent.$parent.epochToDate(albumDetails.publishedAt) }}</p>
   </div>
   <div class="row mb-2">
     <div class="col-md-6">
-      <font-awesome-icon @click="this.$parent.$emit('albumVote', -1, albumDetails.id)" class="thumbsDownClass" :icon="thumbsDownIcon" size="2x" />
+      <font-awesome-icon @click="$parent.$parent.$emit('albumVote', -1, albumDetails.id)" class="thumbsDownClass" :icon="thumbsDownIcon" size="2x" />
     </div>
     <div class="col-md-6">
-      <font-awesome-icon @click="this.$parent.$emit('albumVote', 1, albumDetails.id)" class="thumbsUpClass" :icon="thumbsUpIcon" size="2x" />
+      <font-awesome-icon @click="$parent.$parent.$emit('albumVote', 1, albumDetails.id)" class="thumbsUpClass" :icon="thumbsUpIcon" size="2x" />
     </div>
   </div>
   <div class="row mx-auto pb-2">
     <div v-for="link, key in albumDetails.links" :key="key" class="col-md-6">
-      <div v-html="$parent.generatedLink(link)"></div>
+      <div v-html="$parent.$parent.generatedLink(link)"></div>
     </div>
   </div>
 </template>
