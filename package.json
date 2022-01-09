@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "aws --profile vue-deployer --region eu-west-1 s3 sync ./dist s3://music-app-2022 --delete"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
