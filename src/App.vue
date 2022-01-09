@@ -88,4 +88,13 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+li > input[type='checkbox'] {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+li > input[type='checkbox']:hover, li > label:hover {
+  cursor: pointer;
+}
 </style>
