@@ -1,28 +1,22 @@
 <template>
-    <div class ="container">
-        <div class="align-items-center">
-            <label for="formMax">Albums Released Between</label>
-            <input type="text" id="formMin" class="form-control mx-2 text-center"
-                    style="width:70px; display:inline;" v-model="minYear"> -
-            <input type="text" id="formMax" class="form-control mx-2 text-center"
-                    style="width:70px; display:inline;" v-model="maxYear">
-            <double-range-slider :minYear="minYear" :maxYear="maxYear" @update:minYear="value => minYear = value" @update:maxYear="value => maxYear = value"></double-range-slider>
-            <input type="text" id="filterText" class="form-control mx-auto text-center"
-                    style="width:50%;" placeholder="Search for an Album or Artist" v-model="filterText">
-        </div>
-          <transition-group
-            tag="div"
-            class="row"
-            enter-active-class="animate__animated animate__fadeIn"
-            leave-active-class="animate__animated animate__fadeOut"
-          >
-            <div v-for="album in filteredAlbums" :key="album.id" class="card d-flex col-sm-12 col-md-3 mx-1 mt-3">
-              <album-card
-                :albumDetails="album"
-              />
-            </div>
-          </transition-group>
-    </div>
+  <div class="align-items-center" v-if="filters.includes('releaseYear')">
+      <label for="formMax">Albums Released Between</label>
+      <input type="text" id="formMin" class="form-control mx-2 text-center"
+              style="width:70px; display:inline;" v-model="minYear"> -
+      <input type="text" id="formMax" class="form-control mx-2 text-center"
+              style="width:70px; display:inline;" v-model="maxYear">
+      <double-range-slider :minYear="minYear" :maxYear="maxYear" @update:minYear="value => minYear = value" @update:maxYear="value => maxYear = value"></double-range-slider>
+  </div>
+    <transition-group
+      tag="div"
+      class="row"
+      enter-active-class="animate__animated animate__fadeIn"
+      leave-active-class="animate__animated animate__fadeOut"
+    >
+      <div v-for="album in filteredAlbums" :key="album.id" class="card col-md-12 col-md-6 col-lg-4 mt-2 mb-2">
+        <album-card :albumDetails="album"/>
+      </div>
+    </transition-group>
 </template>
 
 <script>
@@ -35,12 +29,11 @@ export default {
     AlbumCard,
     DoubleRangeSlider
   },
-  props: ['albums', 'musicServices'],
+  props: ['albums', 'musicServices', 'filterText', 'filters'],
   data: function () {
     return {
       minYear: 1950,
-      maxYear: 2022,
-      filterText: ''
+      maxYear: 2022
     }
   },
   methods: {
@@ -70,5 +63,21 @@ export default {
 <style scoped>
   .animate__animated {
     animation-duration: 0.3s;
+  }
+  @media only screen and (max-width: 991px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 60%;
+      margin: auto
+    }
+  }
+  @media (max-width: 2000px) and (min-width: 992px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 30.3333333333%;
+      padding-left: 1.5%;
+      padding-right: 1.5%;
+      margin: auto
+    }
   }
 </style>
