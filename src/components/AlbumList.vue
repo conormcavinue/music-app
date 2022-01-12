@@ -1,35 +1,4 @@
 <template>
-  <div class="bg-light">
-    <transition
-     class="align-items-center pb-3"
-      enter-active-class="animate__animated animate__fadeIn"
-      leave-active-class="animate__animated animate__fadeOut">
-      <div v-if="filters.includes('releaseYear')">
-          <h4>Albums Released Between</h4>
-          <input type="text" id="formMin" class="form-control mx-2 text-center"
-                  style="width:70px; display:inline;" v-model="minYear"> -
-          <input type="text" id="formMax" class="form-control mx-2 text-center"
-                  style="width:70px; display:inline;" v-model="maxYear">
-          <double-range-slider :minYear="minYear" :maxYear="maxYear" @update:minYear="value => minYear = value" @update:maxYear="value => maxYear = value"></double-range-slider>
-      </div>
-    </transition>
-    <transition
-      class="pb-3 row"
-      enter-active-class="animate__animated animate__fadeIn"
-      leave-active-class="animate__animated animate__fadeOut">
-      <div v-if="filters.includes('dateAdded')">
-          <h4>Select Date Range</h4>
-          <datepicker
-            class="col-md-4 col-sm-12"
-            v-model="dateRange"
-            format="dd/MM/yyyy"
-            :enableTimePicker="false"
-            :minDate="new Date(2022, 0, 1)"
-            :maxDate="new Date()"
-            range twoCalendars autoApply></datepicker>
-      </div>
-    </transition>
-  </div>
   <transition-group
     tag="div"
     class="row"
@@ -45,12 +14,10 @@
 <script>
 import moment from 'moment'
 import AlbumCard from './AlbumCard.vue'
-import DoubleRangeSlider from './DoubleRangeSlider.vue'
 
 export default {
   components: {
-    AlbumCard,
-    DoubleRangeSlider
+    AlbumCard
   },
   props: ['albums', 'musicServices', 'filterText', 'filters'],
   data: function () {
