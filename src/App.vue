@@ -31,13 +31,13 @@
     </div>
   </nav>
   <div class ="container">
-      <album-list
-        :albums="albums"
-        :musicServices="musicServices"
-        :filterText="filterText"
-        :filters="filters"
-        @albumVote="albumVote"
-        />
+    <album-list
+      :albums="albums"
+      :musicServices="musicServices"
+      :filterText="filterText"
+      :filters="filters"
+      @albumVote="albumVote"
+      />
   </div>
 </template>
 
@@ -68,7 +68,7 @@ export default {
     },
     albumVote: function (value, albumId) {
       const albumIndex = this.albums.findIndex(x => x.id === albumId)
-      this.albums[albumIndex].albumVote = value
+      this.albums[albumIndex].albumVote += value
     },
     getAlbums: function () {
       this.albums = sourceData.albums

@@ -1,22 +1,45 @@
 <template>
-  <div class="align-items-center" v-if="filters.includes('releaseYear')">
-      <label for="formMax">Albums Released Between</label>
-      <input type="text" id="formMin" class="form-control mx-2 text-center"
-              style="width:70px; display:inline;" v-model="minYear"> -
-      <input type="text" id="formMax" class="form-control mx-2 text-center"
-              style="width:70px; display:inline;" v-model="maxYear">
-      <double-range-slider :minYear="minYear" :maxYear="maxYear" @update:minYear="value => minYear = value" @update:maxYear="value => maxYear = value"></double-range-slider>
-  </div>
-    <transition-group
-      tag="div"
-      class="row"
+  <div class="bg-light">
+    <transition
+     class="align-items-center pb-3"
       enter-active-class="animate__animated animate__fadeIn"
-      leave-active-class="animate__animated animate__fadeOut"
-    >
-      <div v-for="album in filteredAlbums" :key="album.id" class="card col-md-12 col-md-6 col-lg-4 mt-2 mb-2">
-        <album-card :albumDetails="album"/>
+      leave-active-class="animate__animated animate__fadeOut">
+      <div v-if="filters.includes('releaseYear')">
+          <h4>Albums Released Between</h4>
+          <input type="text" id="formMin" class="form-control mx-2 text-center"
+                  style="width:70px; display:inline;" v-model="minYear"> -
+          <input type="text" id="formMax" class="form-control mx-2 text-center"
+                  style="width:70px; display:inline;" v-model="maxYear">
+          <double-range-slider :minYear="minYear" :maxYear="maxYear" @update:minYear="value => minYear = value" @update:maxYear="value => maxYear = value"></double-range-slider>
       </div>
-    </transition-group>
+    </transition>
+    <transition
+      class="pb-3 row"
+      enter-active-class="animate__animated animate__fadeIn"
+      leave-active-class="animate__animated animate__fadeOut">
+      <div v-if="filters.includes('dateAdded')">
+          <h4>Select Date Range</h4>
+          <datepicker
+            class="col-md-4 col-sm-12"
+            v-model="dateRange"
+            format="dd/MM/yyyy"
+            :enableTimePicker="false"
+            :minDate="new Date(2022, 0, 1)"
+            :maxDate="new Date()"
+            range twoCalendars autoApply></datepicker>
+      </div>
+    </transition>
+  </div>
+  <transition-group
+    tag="div"
+    class="row"
+    enter-active-class="animate__animated animate__fadeIn"
+    leave-active-class="animate__animated animate__fadeOut"
+  >
+    <div v-for="album in filteredAlbums" :key="album.id" class="card col-md-12 col-md-6 col-lg-4 mt-2 mb-2">
+      <album-card :albumDetails="album"/>
+    </div>
+  </transition-group>
 </template>
 
 <script>
@@ -33,7 +56,8 @@ export default {
   data: function () {
     return {
       minYear: 1950,
-      maxYear: 2022
+      maxYear: 2022,
+      dateRange: null
     }
   },
   methods: {
@@ -48,13 +72,25 @@ export default {
   computed: {
     filteredAlbums: function () {
       let filteredAlbums = this.albums
+      let startDate = null
+      let endDate = null
+      if (this.dateRange) {
+        startDate = this.dateRange[0].getTime() / 1000
+        endDate = this.dateRange[1].getTime() / 1000
+      }
+      if (this.filters.includes('dateAdded') && this.dateRange) {
+        filteredAlbums = filteredAlbums
+          .filter(x => x.publishedAt >= startDate && x.publishedAt <= endDate)
+      }
       if (this.filterText !== '') {
-        filteredAlbums = this.albums.filter(
+        filteredAlbums = filteredAlbums.filter(
           x => x.albumName.toLowerCase().includes(this.filterText.toLowerCase()) ||
           x.albumArtist.toLowerCase().includes(this.filterText.toLowerCase())
         )
       }
-      return filteredAlbums.filter(x => x.releaseYear >= this.minYear && x.releaseYear <= this.maxYear)
+      return filteredAlbums
+        .filter(x => x.releaseYear >= this.minYear && x.releaseYear <= this.maxYear)
+        .filter(x => x.publishedAt <= new Date().getTime() / 1000)
     }
   }
 }

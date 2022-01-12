@@ -7,14 +7,7 @@
     <h4>{{ albumDetails.albumArtist }}</h4>
     <p>{{ $parent.$parent.epochToDate(albumDetails.publishedAt) }}</p>
   </div>
-  <div class="row mb-2">
-    <div class="col">
-      <font-awesome-icon @click="$parent.$parent.$emit('albumVote', -1, albumDetails.id)" class="thumbsDownClass" :icon="thumbsDownIcon" size="2x" />
-    </div>
-    <div class="col">
-      <font-awesome-icon @click="$parent.$parent.$emit('albumVote', 1, albumDetails.id)" class="thumbsUpClass" :icon="thumbsUpIcon" size="2x" />
-    </div>
-  </div>
+  <vote-buttons :album="albumDetails"></vote-buttons>
   <div class="row mx-auto pb-2">
     <div v-for="link, key in albumDetails.links" :key="key" class="col">
       <div v-html="$parent.$parent.generatedLink(link)"></div>
@@ -23,29 +16,16 @@
 </template>
 
 <script>
+import VoteButtons from './VoteButtons.vue'
+
 export default {
   props: ['albumDetails'],
-  computed: {
-    thumbsDownIcon: function () {
-      return this.albumDetails.albumVote === -1 ? ['fas', 'thumbs-down'] : ['far', 'thumbs-down']
-    },
-    thumbsUpIcon: function () {
-      return this.albumDetails.albumVote === 1 ? ['fas', 'thumbs-up'] : ['far', 'thumbs-up']
-    }
+  components: {
+    VoteButtons
   }
 }
 </script>
 
 <style scoped>
-  .thumbsDownClass {
-    color: red
-  }
 
-  .thumbsUpClass {
-    color: green
-  }
-
-  .thumbsDownClass:hover, .thumbsUpClass:hover {
-    cursor: pointer
-  }
 </style>
