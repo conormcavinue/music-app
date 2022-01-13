@@ -1,67 +1,11 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light flex-wrap">
-    <div class="container">
-      <a class="navbar-brand" href="#">Music 2022</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Filters
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <input type="checkbox" id="releaseYearFilter" value="releaseYear" v-model="filters">
-                <label for="releaseYearFilter">Release Year</label>
-              </li>
-              <li>
-                <input type="checkbox" id="dateAddedFilter" value="dateAdded" v-model="filters">
-                <label for="dateAddedFilter">Date Added</label>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="filterText">
-        </form>
-      </div>
-    </div>
-    <transition
-      class="align-items-center pb-3"
-      enter-active-class="animate__animated animate__fadeIn"
-      leave-active-class="animate__animated animate__fadeOut">
-      <div class="container" v-if="filters.includes('releaseYear')">
-        <div class="mb-3 mx-auto min-half-width">
-            <h4>Albums Released Between</h4>
-            <input type="text" id="formMin" class="form-control mx-2 text-center"
-                    style="width:70px; display:inline;" v-model="minYear"> -
-            <input type="text" id="formMax" class="form-control mx-2 text-center"
-                    style="width:70px; display:inline;" v-model="maxYear">
-            <double-range-slider :minYear="minYear" :maxYear="maxYear" @update:minYear="value => minYear = value" @update:maxYear="value => maxYear = value"></double-range-slider>
-        </div>
-      </div>
-    </transition>
-    <transition
-      class="align-items-center pb-3"
-      enter-active-class="animate__animated animate__fadeIn"
-      leave-active-class="animate__animated animate__fadeOut">
-      <div class="container" v-if="filters.includes('dateAdded')">
-        <div class="mb-3 mx-auto min-quarter-width">
-            <h4>Select Date Range</h4>
-            <datepicker
-              v-model="dateRange"
-              format="dd/MM/yyyy"
-              :enableTimePicker="false"
-              :minDate="new Date(2022, 0, 1)"
-              :maxDate="new Date()"
-              range twoCalendars autoApply></datepicker>
-        </div>
-      </div>
-    </transition>
-  </nav>
+  <nav-bar
+    @setFilters="setFilters"
+    @setFilterText="setFilterText"
+    @setDateRange="setDateRange"
+    @setMinYear="setMinYear"
+    @setMaxYear="setMaxYear">
+  </nav-bar>
   <div class ="container">
     <album-list
       :albums="filteredAlbums"
@@ -76,7 +20,7 @@
 <script>
 import sourceData from '@/data.json'
 import AlbumList from '@/components/AlbumList.vue'
-import DoubleRangeSlider from '@/components/DoubleRangeSlider.vue'
+import NavBar from '@/components/NavBar.vue'
 
 export default {
   name: 'App',
@@ -93,7 +37,7 @@ export default {
   },
   components: {
     AlbumList,
-    DoubleRangeSlider
+    NavBar
   },
   methods: {
     albumVote: function (value, albumId) {
@@ -102,6 +46,21 @@ export default {
     },
     getAlbums: function () {
       this.albums = sourceData.albums
+    },
+    setFilters: function (filters) {
+      this.filters = filters
+    },
+    setFilterText: function (filterText) {
+      this.filterText = filterText
+    },
+    setDateRange: function (dateRange) {
+      this.dateRange = dateRange
+    },
+    setMinYear: function (minYear) {
+      this.minYear = minYear
+    },
+    setMaxYear: function (maxYear) {
+      this.maxYear = maxYear
     }
   },
   computed: {
@@ -136,7 +95,7 @@ export default {
 
 <style>
 .animate__animated {
-  animation-duration: 0.3s;
+  animation-duration: 2s;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
