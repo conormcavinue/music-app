@@ -68,11 +68,9 @@ export default {
       let filteredAlbums = this.albums
       let startDate = null
       let endDate = null
-      if (this.dateRange) {
+      if (this.filters.includes('dateAdded') && this.dateRange) {
         startDate = this.dateRange[0].getTime() / 1000
         endDate = this.dateRange[1].getTime() / 1000
-      }
-      if (this.filters.includes('dateAdded') && this.dateRange) {
         filteredAlbums = filteredAlbums
           .filter(x => x.publishedAt >= startDate && x.publishedAt <= endDate)
       }
