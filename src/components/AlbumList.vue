@@ -1,23 +1,28 @@
 <template>
-  <transition-group
-    tag="div"
-    class="row"
-    enter-active-class="animate__animated animate__fadeIn"
-    leave-active-class="animate__animated animate__fadeOut"
-  >
-    <div v-for="album in filteredAlbums" :key="album.id" class="card col-md-12 col-md-6 col-lg-4 mt-2 mb-2">
-      <album-card :albumDetails="album"/>
-    </div>
-  </transition-group>
+  <nav-bar></nav-bar>
+  <div class ="container">
+    <transition-group
+      tag="div"
+      class="row"
+      enter-active-class="animate__animated animate__fadeIn"
+      leave-active-class="animate__animated animate__fadeOut"
+    >
+      <div v-for="album in filteredAlbums" :key="album.id" class="card col-md-12 col-md-6 col-lg-4 mt-2 mb-2">
+        <album-card :albumDetails="album"/>
+      </div>
+    </transition-group>
+  </div>
 </template>
 
 <script>
 import moment from 'moment'
 import AlbumCard from './AlbumCard.vue'
+import NavBar from './NavBar.vue'
 
 export default {
   components: {
-    AlbumCard
+    AlbumCard,
+    NavBar
   },
   props: ['albums', 'musicServices', 'filterText', 'filters'],
   data: function () {

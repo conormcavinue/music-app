@@ -1,26 +1,20 @@
 <template>
-  <nav-bar
-    @setFilters="setFilters"
-    @setFilterText="setFilterText"
-    @setDateRange="setDateRange"
-    @setMinYear="setMinYear"
-    @setMaxYear="setMaxYear">
-  </nav-bar>
-  <div class ="container">
-    <album-list
+    <router-view
       :albums="filteredAlbums"
       :musicServices="musicServices"
       :filterText="filterText"
       :filters="filters"
       @albumVote="albumVote"
+      @setFilters="setFilters"
+      @setFilterText="setFilterText"
+      @setDateRange="setDateRange"
+      @setMinYear="setMinYear"
+      @setMaxYear="setMaxYear"
       />
-  </div>
 </template>
 
 <script>
 import sourceData from '@/data.json'
-import AlbumList from '@/components/AlbumList.vue'
-import NavBar from '@/components/NavBar.vue'
 
 export default {
   name: 'App',
@@ -34,10 +28,6 @@ export default {
       filterText: '',
       filters: []
     }
-  },
-  components: {
-    AlbumList,
-    NavBar
   },
   methods: {
     albumVote: function (value, albumId) {

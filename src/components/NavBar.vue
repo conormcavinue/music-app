@@ -40,7 +40,7 @@
                     style="width:70px; display:inline;" v-model="minYear"> -
             <input type="text" id="formMax" class="form-control mx-2 text-center"
                     style="width:70px; display:inline;" v-model="maxYear">
-            <double-range-slider :minYear="minYear" :maxYear="maxYear" @update:minYear="value => minYear = value" @update:maxYear="value => maxYear = value"></double-range-slider>
+            <double-range-slider :minYear="Number(minYear)" :maxYear="Number(maxYear)" @update:minYear="value => minYear = value" @update:maxYear="value => maxYear = value"></double-range-slider>
         </div>
       </div>
     </transition>
@@ -83,27 +83,27 @@ export default {
   watch: {
     filters (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.$emit('setFilters', this.filters)
+        this.$parent.$emit('setFilters', this.filters)
       }
     },
     filterText (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.$emit('setFilterText', this.filterText)
+        this.$parent.$emit('setFilterText', this.filterText)
       }
     },
     dateRange (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.$emit('setDateRange', this.dateRange)
+        this.$parent.$emit('setDateRange', this.dateRange)
       }
     },
     minYear (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.$emit('setMinYear', this.minYear)
+        this.$parent.$emit('setMinYear', this.minYear)
       }
     },
     maxYear (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.$emit('setMaxYear', this.maxYear)
+        this.$parent.$emit('setMaxYear', this.maxYear)
       }
     }
   }
