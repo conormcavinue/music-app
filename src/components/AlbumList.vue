@@ -1,6 +1,7 @@
 <template>
   <nav-bar></nav-bar>
   <div class ="container">
+    <h1>Albums 2022</h1>
     <transition-group
       tag="div"
       class="row"
@@ -15,7 +16,6 @@
 </template>
 
 <script>
-import moment from 'moment'
 import AlbumCard from './AlbumCard.vue'
 import NavBar from './NavBar.vue'
 
@@ -35,10 +35,6 @@ export default {
   methods: {
     generatedLink: function (link) {
       return '<a href="' + link.url + '" target="_blank"><img height="50px" width="50px" src="' + this.musicServices.find(x => x.id === link.musicServiceId).imgSrc + '" /></a>'
-    },
-    epochToDate: function (date) {
-      const epochDate = new Date(date * 1000)
-      return moment(epochDate).format('MMMM Do')
     }
   },
   computed: {

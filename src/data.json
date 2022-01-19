@@ -1,21 +1,21 @@
 {
   "albums": [
     {
-      "id":"a1",
+      "id":"1",
       "albumName":"Passover",
       "albumArtist":"The Black Angels",
       "links":[
         {
-          "id":"l2",
-          "musicServiceId":"il1",
+          "id":"1",
+          "musicServiceId":"1",
           "url":"https://open.spotify.com/album/6WYCzTU5HEw63DbtbNupsA?si=JzEiWoHSR46DaUWdBewMXQ",
-          "albumId":"a1"
+          "albumId":"1"
         },
         {
-          "id":"l2",
-          "musicServiceId":"il2",
+          "id":"2",
+          "musicServiceId":"2",
           "url":"https://music.youtube.com/playlist?list=OLAK5uy_laBjc-_MNgnZkQbZo1lZMJesr0H1U01Fg&feature=share",
-          "albumId":"a1"
+          "albumId":"1"
         }
       ],
       "imageLink":"https://media.pitchfork.com/photos/5929aba613d1975652139c3e/1:1/w_320/ab6c6ba6.jpg",
@@ -24,21 +24,21 @@
       "publishedAt":1641081600
     },
     {
-      "id":"a2",
+      "id":"2",
       "albumName":"Home",
       "albumArtist":"Blackmill",
       "links":[
         {
-          "id":"l2",
-          "musicServiceId":"il1",
+          "id":"3",
+          "musicServiceId":"1",
           "url":"https://open.spotify.com/album/4b6wQfVQTpMNTwGo7ZSfBY?si=cmTXyw17SHCQRa5mkcklQw",
-          "albumId":"a1"
+          "albumId":"2"
         },
         {
-          "id":"l2",
-          "musicServiceId":"il2",
+          "id":"4",
+          "musicServiceId":"2",
           "url":"https://music.youtube.com/playlist?list=OLAK5uy_nvXailCnTxnRkGgqyZW3Prg4nOG5Z7bgA",
-          "albumId":"a1"
+          "albumId":"2"
         }
       ],
       "imageLink":"https://i.scdn.co/image/ab67616d0000b273c2cb5a8eb339c8a6bbf912df",
@@ -47,21 +47,21 @@
       "publishedAt":1641686400
     },
     {
-      "id":"a3",
+      "id":"3",
       "albumName":"Crystal Machete",
       "albumArtist":"Wes Borland",
       "links":[
         {
-          "id":"l2",
-          "musicServiceId":"il1",
+          "id":"5",
+          "musicServiceId":"1",
           "url":"https://open.spotify.com/album/6RrfC1hxrS4ANiOQPTtCs3?si=3G_fYCvNSlqx3GcwQoXJAg",
-          "albumId":"a1"
+          "albumId":"3"
         },
         {
-          "id":"l2",
-          "musicServiceId":"il2",
+          "id":"6",
+          "musicServiceId":"2",
           "url":"https://music.youtube.com/playlist?list=OLAK5uy_mL_qvbSjM2WJoav8nnwlrEgBrG3PLnWTo&feature=share",
-          "albumId":"a1"
+          "albumId":"3"
         }
       ],
       "imageLink":"https://d1gdi8qinx8x49.cloudfront.net/540x540/103529.jpeg",
@@ -72,12 +72,12 @@
   ],
   "musicServices": [
     {
-      "id": "il1",
+      "id": "1",
       "serviceName": "Spotify",
       "imgSrc": "https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png"
     },
     {
-      "id": "il2",
+      "id": "2",
       "serviceName": "Youtube Music",
       "imgSrc": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/159px-YouTube_full-color_icon_%282017%29.svg.png"
     }

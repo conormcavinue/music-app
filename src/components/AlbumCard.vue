@@ -1,11 +1,11 @@
 <template>
   <div class="row mx-auto pt-2">
-    <img style="max-height: 250px;" :src="albumDetails.imageLink" />
+    <router-link :to="{name: 'Albums', params: {id: albumDetails.id }} "><img style="max-height: 250px;" :src="albumDetails.imageLink" /></router-link>
   </div>
   <div class="mx-auto">
     <h3>{{ albumDetails.albumName }}</h3>
     <h4>{{ albumDetails.albumArtist }}</h4>
-    <p>{{ $parent.$parent.epochToDate(albumDetails.publishedAt) }}</p>
+    <router-link :to="{name: 'Albums', params: {id: albumDetails.id }}" tag="button" class="btn btn-outline-secondary">Details</router-link>
   </div>
   <vote-buttons :album="albumDetails"></vote-buttons>
   <div class="row mx-auto pb-2">

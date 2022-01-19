@@ -73,6 +73,7 @@ export default {
       return filteredAlbums
         .filter(x => x.releaseYear >= this.minYear && x.releaseYear <= this.maxYear)
         .filter(x => x.publishedAt <= new Date().getTime() / 1000)
+        .sort((x, y) => (x.publishedAt < y.publishedAt) ? 1 : -1)
     }
   },
   mounted () {
@@ -86,7 +87,7 @@ export default {
   animation-duration: 2s;
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
