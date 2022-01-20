@@ -1,5 +1,5 @@
 <template>
-  <nav-bar></nav-bar>
+  <nav-bar :showFilters="Boolean(true)"></nav-bar>
   <div class ="container">
     <h1>Albums 2022</h1>
     <transition-group

@@ -1,5 +1,5 @@
 <template>
-  <nav-bar></nav-bar>
+  <nav-bar :showFilters="Boolean(false)"></nav-bar>
   <div class="card mx-auto mt-3 mb-2">
     <div class="card-header mb-3">
       <h1>{{ album.albumName }}</h1>
@@ -60,8 +60,18 @@ export default {
 </script>
 
 <style scoped>
-  .card {
-    max-width: 40%
+  @media only screen and (max-width: 991px) {
+    /* For mobile phones: */
+    .card {
+      width: 80%;
+      margin: auto
+    }
+  }
+  @media (max-width: 2000px) and (min-width: 992px) {
+    /* For mobile phones: */
+    .card {
+      max-width: 40%
+    }
   }
   .img-width {
     width: 80%

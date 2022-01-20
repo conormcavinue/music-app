@@ -1,6 +1,6 @@
 <template>
   <div class="row mx-auto pt-2">
-    <router-link :to="{name: 'Albums', params: {id: albumDetails.id }} "><img style="max-height: 250px;" :src="albumDetails.imageLink" /></router-link>
+    <router-link :to="{name: 'Albums', params: {id: albumDetails.id }} "><img style="max-width: 90%;" :src="albumDetails.imageLink" /></router-link>
   </div>
   <div class="mx-auto">
     <h3>{{ albumDetails.albumName }}</h3>
