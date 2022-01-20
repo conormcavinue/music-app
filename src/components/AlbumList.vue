@@ -83,6 +83,7 @@ export default {
       return filteredAlbums
         .filter(x => x.releaseYear >= this.minYear && x.releaseYear <= this.maxYear)
         .filter(x => x.publishedAt <= new Date().getTime() / 1000)
+        .sort((x, y) => (x.publishedAt < y.publishedAt) ? 1 : -1)
     }
   }
 }
