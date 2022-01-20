@@ -1,5 +1,12 @@
 <template>
-  <nav-bar :showFilters="Boolean(true)"></nav-bar>
+  <nav-bar
+    :showFilters="Boolean(true)"
+    @setMinYear="setMinYear"
+    @setMaxYear="setMaxYear"
+    @setFilters="setFilters"
+    @setFilterText="setFilterText"
+    @setDateRange="setDateRange">
+  </nav-bar>
   <div class ="container">
     <h1>Albums 2022</h1>
     <transition-group
@@ -24,17 +31,34 @@ export default {
     AlbumCard,
     NavBar
   },
-  props: ['albums', 'musicServices', 'filterText', 'filters'],
+  props: ['albums', 'musicServices'],
   data: function () {
     return {
       minYear: 1950,
       maxYear: 2022,
-      dateRange: null
+      dateRange: null,
+      filterText: '',
+      filters: []
     }
   },
   methods: {
     generatedLink: function (link) {
       return '<a href="' + link.url + '" target="_blank"><img height="50px" width="50px" src="' + this.musicServices.find(x => x.id === link.musicServiceId).imgSrc + '" /></a>'
+    },
+    setMinYear: function (minYear) {
+      this.minYear = minYear
+    },
+    setMaxYear: function (maxYear) {
+      this.maxYear = maxYear
+    },
+    setFilters: function (filters) {
+      this.filters = filters
+    },
+    setFilterText: function (filterText) {
+      this.filterText = filterText
+    },
+    setDateRange: function (dateRange) {
+      this.dateRange = dateRange
     }
   },
   computed: {

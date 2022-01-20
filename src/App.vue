@@ -1,15 +1,8 @@
 <template>
     <router-view
-      :albums="filteredAlbums"
+      :albums="albums"
       :musicServices="musicServices"
-      :filterText="filterText"
-      :filters="filters"
       @albumVote="albumVote"
-      @setFilters="setFilters"
-      @setFilterText="setFilterText"
-      @setDateRange="setDateRange"
-      @setMinYear="setMinYear"
-      @setMaxYear="setMaxYear"
       />
 </template>
 
@@ -20,13 +13,8 @@ export default {
   name: 'App',
   data: function () {
     return {
-      minYear: 1950,
-      maxYear: 2022,
-      dateRange: null,
       albums: [],
-      musicServices: sourceData.musicServices,
-      filterText: '',
-      filters: []
+      musicServices: []
     }
   },
   methods: {
@@ -37,47 +25,13 @@ export default {
     getAlbums: function () {
       this.albums = sourceData.albums
     },
-    setFilters: function (filters) {
-      this.filters = filters
-    },
-    setFilterText: function (filterText) {
-      this.filterText = filterText
-    },
-    setDateRange: function (dateRange) {
-      this.dateRange = dateRange
-    },
-    setMinYear: function (minYear) {
-      this.minYear = minYear
-    },
-    setMaxYear: function (maxYear) {
-      this.maxYear = maxYear
-    }
-  },
-  computed: {
-    filteredAlbums: function () {
-      let filteredAlbums = this.albums
-      let startDate = null
-      let endDate = null
-      if (this.filters.includes('dateAdded') && this.dateRange) {
-        startDate = this.dateRange[0].getTime() / 1000
-        endDate = this.dateRange[1].getTime() / 1000
-        filteredAlbums = filteredAlbums
-          .filter(x => x.publishedAt >= startDate && x.publishedAt <= endDate)
-      }
-      if (this.filterText !== '') {
-        filteredAlbums = filteredAlbums.filter(
-          x => x.albumName.toLowerCase().includes(this.filterText.toLowerCase()) ||
-          x.albumArtist.toLowerCase().includes(this.filterText.toLowerCase())
-        )
-      }
-      return filteredAlbums
-        .filter(x => x.releaseYear >= this.minYear && x.releaseYear <= this.maxYear)
-        .filter(x => x.publishedAt <= new Date().getTime() / 1000)
-        .sort((x, y) => (x.publishedAt < y.publishedAt) ? 1 : -1)
+    getMusicServices: function () {
+      this.musicServices = sourceData.musicServices
     }
   },
   mounted () {
     this.getAlbums()
+    this.getMusicServices()
   }
 }
 </script>

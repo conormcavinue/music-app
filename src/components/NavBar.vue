@@ -6,7 +6,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent" v-if="showFilters">
-        <ul class="navbar-nav mr-auto">
+        <ul :class="filterDropdownClass">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Filters
@@ -23,6 +23,7 @@
             </ul>
           </li>
         </ul>
+        <button v-if="filters.length" @click="clearFilters()" class="btn btn-outline-danger mr-auto ml-1">Clear Filters</button>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="filterText">
         </form>
@@ -80,30 +81,43 @@ export default {
   components: {
     DoubleRangeSlider
   },
+  methods: {
+    clearFilters: function () {
+      this.filters = []
+      this.minYear = 1950
+      this.maxYear = 2022
+      this.dateRange = null
+    }
+  },
+  computed: {
+    filterDropdownClass: function () {
+      return this.filters.length ? 'navbar-nav' : 'navbar-nav mr-auto'
+    }
+  },
   watch: {
     filters (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.$parent.$emit('setFilters', this.filters)
+        this.$emit('setFilters', this.filters)
       }
     },
     filterText (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.$parent.$emit('setFilterText', this.filterText)
+        this.$emit('setFilterText', this.filterText)
       }
     },
     dateRange (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.$parent.$emit('setDateRange', this.dateRange)
+        this.$emit('setDateRange', this.dateRange)
       }
     },
     minYear (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.$parent.$emit('setMinYear', this.minYear)
+        this.$emit('setMinYear', this.minYear)
       }
     },
     maxYear (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.$parent.$emit('setMaxYear', this.maxYear)
+        this.$emit('setMaxYear', this.maxYear)
       }
     }
   }
