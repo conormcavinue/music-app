@@ -1,6 +1,6 @@
 <template>
 <div class="content">
-  <div id="my-slider" :se-min="minThreshold" :se-step="step" :se-min-value="minYear" :se-max-value="maxYear" :se-max="maxThreshold" class="slider">
+  <div id="my-slider" :se-min="minThreshold" :se-step="step" :se-min-value="min" :se-max-value="max" :se-max="maxThreshold" class="slider">
     <div class="slider-touch-left">
       <span></span>
     </div>
@@ -21,21 +21,21 @@ export default {
   props: {
     minThreshold: {
       type: Number,
-      default: 1950
+      default: 1
     },
     maxThreshold: {
       type: Number,
-      default: 2022
+      default: 100
     },
     step: {
       type: Number,
       default: 1
     },
-    minYear: {
+    min: {
       type: Number,
       required: true
     },
-    maxYear: {
+    max: {
       type: Number,
       required: true
     }
@@ -47,12 +47,12 @@ export default {
   },
   mounted: function () {
     this.instance = new ZBRangeSlider('my-slider')
-    this.instance.onChange = (minYear, maxYear) => this.updateValues(minYear, maxYear)
+    this.instance.onChange = (min, max) => this.updateValues(min, max)
   },
   methods: {
-    updateValues: function (minYear, maxYear) {
-      this.$emit('update:minYear', minYear)
-      this.$emit('update:maxYear', maxYear)
+    updateValues: function (min, max) {
+      this.$emit('update:min', min)
+      this.$emit('update:max', max)
     }
   }
 }

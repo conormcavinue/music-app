@@ -1,6 +1,8 @@
 <template>
   <nav-bar
     :showFilters="Boolean(true)"
+    @setStartWeek="setStartWeek"
+    @setEndWeek="setEndWeek"
     @setMinYear="setMinYear"
     @setMaxYear="setMaxYear"
     @setFilters="setFilters"
@@ -34,6 +36,8 @@ export default {
   props: ['albums', 'musicServices'],
   data: function () {
     return {
+      startWeek: 1,
+      endWeek: 52,
       minYear: 1950,
       maxYear: 2022,
       dateRange: null,
@@ -44,6 +48,12 @@ export default {
   methods: {
     generatedLink: function (link) {
       return '<a href="' + link.url + '" target="_blank"><img height="50px" width="50px" src="' + this.musicServices.find(x => x.id === link.musicServiceId).imgSrc + '" /></a>'
+    },
+    setStartWeek: function (startWeek) {
+      this.startWeek = startWeek
+    },
+    setEndWeek: function (endWeek) {
+      this.endWeek = endWeek
     },
     setMinYear: function (minYear) {
       this.minYear = minYear
@@ -66,6 +76,8 @@ export default {
       let filteredAlbums = this.albums
       let startDate = null
       let endDate = null
+      let startWeekSeconds = null
+      let endWeekSeconds = null
       if (this.dateRange) {
         startDate = this.dateRange[0].getTime() / 1000
         endDate = this.dateRange[1].getTime() / 1000
@@ -73,6 +85,13 @@ export default {
       if (this.filters.includes('dateAdded') && this.dateRange) {
         filteredAlbums = filteredAlbums
           .filter(x => x.publishedAt >= startDate && x.publishedAt <= endDate)
+      }
+      if (this.filters.includes('weekAdded')) {
+        const initialAlbumDate = 1641081600
+        startWeekSeconds = (this.startWeek - 1) * 604800
+        endWeekSeconds = (this.endWeek - 1) * 604800
+        filteredAlbums = filteredAlbums
+          .filter(x => x.publishedAt >= (initialAlbumDate + startWeekSeconds) && x.publishedAt <= (initialAlbumDate + endWeekSeconds))
       }
       if (this.filterText !== '') {
         filteredAlbums = filteredAlbums.filter(

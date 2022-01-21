@@ -17,6 +17,10 @@
                 <label for="releaseYearFilter">Release Year</label>
               </li>
               <li>
+                <input type="checkbox" id="weekAddedFilter" value="weekAdded" v-model="filters">
+                <label for="weekAddedFilter">Week Added</label>
+              </li>
+              <li>
                 <input type="checkbox" id="dateAddedFilter" value="dateAdded" v-model="filters">
                 <label for="dateAddedFilter">Date Added</label>
               </li>
@@ -40,7 +44,22 @@
                     style="width:70px; display:inline;" v-model="minYear"> -
             <input type="text" id="formMax" class="form-control mx-2 text-center"
                     style="width:70px; display:inline;" v-model="maxYear">
-            <double-range-slider :minYear="Number(minYear)" :maxYear="Number(maxYear)" @update:minYear="value => minYear = value" @update:maxYear="value => maxYear = value"></double-range-slider>
+            <double-range-slider :minThreshold="Number(1950)" :maxThreshold="Number(2022)" :min="Number(minYear)" :max="Number(maxYear)" @update:min="value => minYear = value" @update:max="value => maxYear = value"></double-range-slider>
+        </div>
+      </div>
+    </transition>
+    <transition
+      class="align-items-center pb-3"
+      enter-active-class="animate__animated animate__fadeIn"
+      leave-active-class="animate__animated animate__fadeOut">
+      <div class="container" v-if="filters.includes('weekAdded')">
+        <div class="mb-3 mx-auto min-half-width">
+            <h4>Week Added</h4>
+            <input type="text" id="formMin" class="form-control mx-2 text-center"
+                    style="width:70px; display:inline;" v-model="startWeek"> -
+            <input type="text" id="formMax" class="form-control mx-2 text-center"
+                    style="width:70px; display:inline;" v-model="endWeek">
+            <double-range-slider :minThreshold="Number(1)" :maxThreshold="currentWeek()" :min="Number(startWeek)" :max="currentWeek()" @update:min="value => startWeek = value" @update:max="value => endWeek = value"></double-range-slider>
         </div>
       </div>
     </transition>
@@ -50,7 +69,7 @@
       leave-active-class="animate__animated animate__fadeOut">
       <div class="container" v-if="filters.includes('dateAdded')">
         <div class="mb-3 mx-auto min-quarter-width">
-            <h4>Select Date Range</h4>
+            <h4>Date Added: Select Date Range</h4>
             <datepicker
               v-model="dateRange"
               format="dd/MM/yyyy"
@@ -71,6 +90,8 @@ export default {
   props: ['showFilters'],
   data: function () {
     return {
+      startWeek: 1,
+      endWeek: this.currentWeek(),
       minYear: 1950,
       maxYear: 2022,
       dateRange: null,
@@ -87,6 +108,13 @@ export default {
       this.minYear = 1950
       this.maxYear = 2022
       this.dateRange = null
+    },
+    currentWeek: function () {
+      const date = new Date()
+      date.setHours(0, 0, 0, 0)
+      date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7)
+      var week1 = new Date(date.getFullYear(), 0, 4)
+      return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7)
     }
   },
   computed: {
@@ -108,6 +136,16 @@ export default {
     dateRange (newVal, oldVal) {
       if (newVal !== oldVal) {
         this.$emit('setDateRange', this.dateRange)
+      }
+    },
+    startWeek (newVal, oldVal) {
+      if (newVal !== oldVal) {
+        this.$emit('setStartWeek', this.startWeek)
+      }
+    },
+    endWeek (newVal, oldVal) {
+      if (newVal !== oldVal) {
+        this.$emit('setEndWeek', this.endWeek)
       }
     },
     minYear (newVal, oldVal) {

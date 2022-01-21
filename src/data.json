@@ -68,6 +68,52 @@
       "releaseYear":2016,
       "albumVote": 0,
       "publishedAt":1642291200
+    },
+    {
+      "id":"4",
+      "albumName":"DREAMLAND",
+      "albumArtist":"ZHU",
+      "links":[
+        {
+          "id":"7",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/7yMUYER67OvjIuGqBgrdZO?si=O7ZjW5fdSdiDiXx--g-CGg",
+          "albumId":"4"
+        },
+        {
+          "id":"8",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_kHUxniQAju7GO0CCB468kz22sMASYumBg&feature=share",
+          "albumId":"4"
+        }
+      ],
+      "imageLink":"https://www.edmtunes.com/wp-content/uploads/2022/01/ab67616d0000b273808d6f46a6d55690eca3d601.jpeg",
+      "releaseYear":2021,
+      "albumVote": 0,
+      "publishedAt":1642896000
+    },
+    {
+      "id":"5",
+      "albumName":"The Gods We Can Touch",
+      "albumArtist":"Aurora",
+      "links":[
+        {
+          "id":"9",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/2HPgGJnpimfmFPMjP0syqY?si=lVykQG5qTgWAtDEoOsTRRQ",
+          "albumId":"5"
+        },
+        {
+          "id":"10",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_kEo4w_kHhrZ3nQ3x2a7Ok9ba4gNs87VIM&feature=share",
+          "albumId":"5"
+        }
+      ],
+      "imageLink":"https://cdn2.thelineofbestfit.com/images/remote/https_cdn2.thelineofbestfit.com/media/2014/Aurora_The_Gods_We_Can_Touch.jpeg",
+      "releaseYear":2022,
+      "albumVote": 0,
+      "publishedAt":1643500800
     }
   ],
   "musicServices": [
