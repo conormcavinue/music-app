@@ -44,7 +44,7 @@
                     style="width:70px; display:inline;" v-model="minYear"> -
             <input type="text" id="formMax" class="form-control mx-2 text-center"
                     style="width:70px; display:inline;" v-model="maxYear">
-            <double-range-slider :minThreshold="Number(1950)" :maxThreshold="Number(2022)" :min="Number(minYear)" :max="Number(maxYear)" @update:min="value => minYear = value" @update:max="value => maxYear = value"></double-range-slider>
+            <double-range-slider id="dateSlider" :minThreshold="Number(1950)" :maxThreshold="Number(2022)" :min="Number(minYear)" :max="Number(maxYear)" @update:min="value => minYear = value" @update:max="value => maxYear = value"></double-range-slider>
         </div>
       </div>
     </transition>
@@ -59,7 +59,7 @@
                     style="width:70px; display:inline;" v-model="startWeek"> -
             <input type="text" id="formMax" class="form-control mx-2 text-center"
                     style="width:70px; display:inline;" v-model="endWeek">
-            <double-range-slider :minThreshold="Number(1)" :maxThreshold="currentWeek()" :min="Number(startWeek)" :max="currentWeek()" @update:min="value => startWeek = value" @update:max="value => endWeek = value"></double-range-slider>
+            <double-range-slider id="weekSlider" :minThreshold="Number(1)" :maxThreshold="currentWeek()" :min="Number(startWeek)" :max="Number(endWeek)" @update:min="value => startWeek = value" @update:max="value => endWeek = value"></double-range-slider>
         </div>
       </div>
     </transition>
@@ -114,7 +114,7 @@ export default {
       date.setHours(0, 0, 0, 0)
       date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7)
       var week1 = new Date(date.getFullYear(), 0, 4)
-      return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7)
+      return Number(1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7))
     }
   },
   computed: {

@@ -1,6 +1,6 @@
 <template>
 <div class="content">
-  <div id="my-slider" :se-min="minThreshold" :se-step="step" :se-min-value="min" :se-max-value="max" :se-max="maxThreshold" class="slider">
+  <div :id="id" :se-min="minThreshold" :se-step="step" :se-min-value="min" :se-max-value="max" :se-max="maxThreshold" class="slider">
     <div class="slider-touch-left">
       <span></span>
     </div>
@@ -38,6 +38,10 @@ export default {
     max: {
       type: Number,
       required: true
+    },
+    id: {
+      type: String,
+      required: true
     }
   },
   data: function () {
@@ -46,11 +50,12 @@ export default {
     }
   },
   mounted: function () {
-    this.instance = new ZBRangeSlider('my-slider')
+    this.instance = new ZBRangeSlider(this.id)
     this.instance.onChange = (min, max) => this.updateValues(min, max)
   },
   methods: {
     updateValues: function (min, max) {
+      console.log('changed')
       this.$emit('update:min', min)
       this.$emit('update:max', max)
     }
