@@ -64,4 +64,9 @@ li > input[type='checkbox']:hover, li > label:hover {
 .min-quarter-width {
   min-width: 25%
 }
+@media (min-width: 512px) {
+.img-max {
+  max-width: 50px !important
+}
+}
 </style>

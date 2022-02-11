@@ -74,6 +74,7 @@ export default {
     }
   }
   .img-width {
-    width: 80%
+    width: 80%;
+    border-radius: 15px;
   }
 </style>

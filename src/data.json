@@ -114,6 +114,75 @@
       "releaseYear":2022,
       "albumVote": 0,
       "publishedAt":1643500800
+    },
+    {
+      "id":"6",
+      "albumName":"FOR THE METAL PEOPLE",
+      "albumArtist":"Aurora",
+      "links":[
+        {
+          "id":"11",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/0V5Kk480n6ExlXFILk3WJi?si=sB0qImzWQNOiBGKnVXx2hA",
+          "albumId":"6"
+        },
+        {
+          "id":"12",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_kaSO9JH7OkpqG97oZQYtechbbwvJj6zQY&feature=share",
+          "albumId":"6"
+        }
+      ],
+      "imageLink":"https://i.scdn.co/image/ab67616d0000b2734e1cbce63f1f14b6066d3b60",
+      "releaseYear":2021,
+      "albumVote": 0,
+      "publishedAt":1643500800
+    },
+    {
+      "id":"7",
+      "albumName":"Howdilly Twodilly",
+      "albumArtist":"Okilly Dokilly",
+      "links":[
+        {
+          "id":"13",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/3U9pQYTgcV3nrWFDlnZWlJ?si=aSm413ZOTOOj-Mc_UaHHew",
+          "albumId":"6"
+        },
+        {
+          "id":"14",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_kTow0tjQDbK2klRuBKJTWhjqGWyehQfHE&feature=share",
+          "albumId":"6"
+        }
+      ],
+      "imageLink":"https://i.scdn.co/image/ab67616d0000b2732c12e9fa68489cc7f7fdb102",
+      "releaseYear":2019,
+      "albumVote": 0,
+      "publishedAt":1644105600
+    },
+    {
+      "id":"8",
+      "albumName":"Run The Jewels 3",
+      "albumArtist":"Run The Jewels",
+      "links":[
+        {
+          "id":"15",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/2vY03PfKPFUUM1FA2lgmC2?si=7KDzr2aLRmO0z4Gb73RH7Q",
+          "albumId":"6"
+        },
+        {
+          "id":"16",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_n9eofVyWLpabp-cM4Gwks9IIsLDdtE6Yk&feature=share",
+          "albumId":"6"
+        }
+      ],
+      "imageLink":"https://media.pitchfork.com/photos/5929c06d5e6ef95969323550/1:1/w_600/f50f99fa.jpg",
+      "releaseYear":2016,
+      "albumVote": 0,
+      "publishedAt":1644710400
     }
   ],
   "musicServices": [

@@ -17,7 +17,7 @@
       enter-active-class="animate__animated animate__fadeIn"
       leave-active-class="animate__animated animate__fadeOut"
     >
-      <div v-for="album in filteredAlbums" :key="album.id" class="card col-md-12 col-md-6 col-lg-4 mt-2 mb-2">
+      <div v-for="album in filteredAlbums" :key="album.id" class="card col-4 mt-2 mb-2">
         <album-card :albumDetails="album"/>
       </div>
     </transition-group>
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     generatedLink: function (link) {
-      return '<a href="' + link.url + '" target="_blank"><img height="50px" width="50px" src="' + this.musicServices.find(x => x.id === link.musicServiceId).imgSrc + '" /></a>'
+      return '<a href="' + link.url + '" target="_blank"><img class="img-fluid img-max" src="' + this.musicServices.find(x => x.id === link.musicServiceId).imgSrc + '" /></a>'
     },
     setStartWeek: function (startWeek) {
       this.startWeek = startWeek
@@ -112,20 +112,18 @@ export default {
   .animate__animated {
     animation-duration: 0.3s;
   }
-  @media only screen and (max-width: 991px) {
-    /* For mobile phones: */
-    [class*="col-"] {
-      width: 60%;
-      margin: auto
-    }
-  }
-  @media (max-width: 2000px) and (min-width: 992px) {
+  @media (max-width: 2000px) {
     /* For mobile phones: */
     [class*="col-"] {
       width: 30.3333333333%;
       padding-left: 1.5%;
       padding-right: 1.5%;
       margin: auto
+    }
+  }
+  @media (max-width: 1200px) {
+    *, *::before, *::after {
+      box-sizing: content-box;
     }
   }
 </style>
