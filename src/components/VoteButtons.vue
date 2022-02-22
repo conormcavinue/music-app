@@ -1,10 +1,10 @@
 <template>
   <div class="row mb-2">
     <div class="col">
-      <font-awesome-icon @click="voteAlbum(-1)" class="thumbsDownClass" :icon="thumbsDownIcon" size="2x" />
+      <font-awesome-icon @click="voteAlbum(-1)" :class="thumbsDownClass" :icon="thumbsDownIcon" size="2x" />
     </div>
     <div class="col">
-      <font-awesome-icon @click="voteAlbum(1)" class="thumbsUpClass" :icon="thumbsUpIcon" size="2x" />
+      <font-awesome-icon @click="voteAlbum(1)" :class="thumbsUpClass" :icon="thumbsUpIcon" size="2x" />
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
   props: ['album'],
   methods: {
     voteAlbum: function (value) {
-      this.$parent.$parent.$parent.$emit('albumVote', value, this.album.id)
+      this.$emit('albumVote', value, this.album.id)
       this.vote = value
     }
   },
@@ -29,18 +29,34 @@ export default {
     },
     thumbsUpIcon: function () {
       return this.vote === 1 ? ['fas', 'thumbs-up'] : ['far', 'thumbs-up']
+    },
+    thumbsDownClass: function () {
+      return 'thumbsDownClassColour ' + (this.vote !== -1 ? 'enabled' : 'disabled')
+    },
+    thumbsUpClass: function () {
+      return 'thumbsUpClassColour ' + (this.vote !== 1 ? 'enabled' : 'disabled')
     }
   }
 }
 </script>
 
 <style scoped>
-.thumbsDownClass {
-    color: red
+  .thumbsDownClassColour {
+    color: red;
   }
 
-  .thumbsUpClass {
-    color: green
+  .thumbsUpClassColour {
+    color: green;
+  }
+
+  .disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .enabled {
+    cursor: pointer;
+    pointer-events: auto;
   }
 
   .thumbsDownClass:hover, .thumbsUpClass:hover {

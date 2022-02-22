@@ -16,6 +16,8 @@
       <p class="mx-auto">{{ album.releaseYear }}</p>
       <h4>Date Added</h4>
       <p class="mx-auto">{{ epochToDate(album.publishedAt) }}</p>
+      <h4>Album Score</h4>
+      <p class="mx-auto">{{ album.albumVote }}</p>
     </div>
   <vote-buttons :album="album"/>
   </div>

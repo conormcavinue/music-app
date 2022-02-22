@@ -20,7 +20,7 @@
       ],
       "imageLink":"https://media.pitchfork.com/photos/5929aba613d1975652139c3e/1:1/w_320/ab6c6ba6.jpg",
       "releaseYear":2006,
-      "albumVote": 0,
+      "albumVote": 1,
       "publishedAt":1641081600
     },
     {
@@ -147,13 +147,13 @@
           "id":"13",
           "musicServiceId":"1",
           "url":"https://open.spotify.com/album/3U9pQYTgcV3nrWFDlnZWlJ?si=aSm413ZOTOOj-Mc_UaHHew",
-          "albumId":"6"
+          "albumId":"7"
         },
         {
           "id":"14",
           "musicServiceId":"2",
           "url":"https://music.youtube.com/playlist?list=OLAK5uy_kTow0tjQDbK2klRuBKJTWhjqGWyehQfHE&feature=share",
-          "albumId":"6"
+          "albumId":"7"
         }
       ],
       "imageLink":"https://i.scdn.co/image/ab67616d0000b2732c12e9fa68489cc7f7fdb102",
@@ -170,19 +170,42 @@
           "id":"15",
           "musicServiceId":"1",
           "url":"https://open.spotify.com/album/2vY03PfKPFUUM1FA2lgmC2?si=7KDzr2aLRmO0z4Gb73RH7Q",
-          "albumId":"6"
+          "albumId":"8"
         },
         {
           "id":"16",
           "musicServiceId":"2",
           "url":"https://music.youtube.com/playlist?list=OLAK5uy_n9eofVyWLpabp-cM4Gwks9IIsLDdtE6Yk&feature=share",
-          "albumId":"6"
+          "albumId":"8"
         }
       ],
       "imageLink":"https://media.pitchfork.com/photos/5929c06d5e6ef95969323550/1:1/w_600/f50f99fa.jpg",
       "releaseYear":2016,
       "albumVote": 0,
       "publishedAt":1644710400
+    },
+    {
+      "id":"9",
+      "albumName":"Ants From Up There",
+      "albumArtist":"Black Country, New Road",
+      "links":[
+        {
+          "id":"15",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/21xp7NdU1ajmO1CX0w2Egd?si=RLwDycNuQlWD5JoC6XHJ8A",
+          "albumId":"9"
+        },
+        {
+          "id":"16",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_lZfs0LSy8e0wgrU8sOAOINMzHeTq_NchE&feature=share",
+          "albumId":"9"
+        }
+      ],
+      "imageLink":"https://media.pitchfork.com/photos/61649694110e7cd222907396/1:1/w_600/Black-Country-New-Road.jpg",
+      "releaseYear":2022,
+      "albumVote": 0,
+      "publishedAt":1645315200
     }
   ],
   "musicServices": [

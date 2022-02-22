@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     generatedLink: function (link) {
-      return '<a href="' + link.url + '" target="_blank"><img class="img-fluid img-max" src="' + this.musicServices.find(x => x.id === link.musicServiceId).imgSrc + '" /></a>'
+      return '<a href="' + link.url + '" target="_blank"><img class="img-fluid img-max" src="' + this.musicServices.find(x => x.musicServiceName === link.musicServiceName).imgSrc + '" /></a>'
     },
     setStartWeek: function (startWeek) {
       this.startWeek = startWeek

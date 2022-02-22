@@ -2,12 +2,11 @@
     <router-view
       :albums="albums"
       :musicServices="musicServices"
-      @albumVote="albumVote"
       />
 </template>
 
 <script>
-import sourceData from '@/data.json'
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -18,15 +17,17 @@ export default {
     }
   },
   methods: {
-    albumVote: function (value, albumId) {
-      const albumIndex = this.albums.findIndex(x => x.id === albumId)
-      this.albums[albumIndex].albumVote += value
-    },
     getAlbums: function () {
-      this.albums = sourceData.albums
+      axios.get('http://localhost:5000/albums')
+        .then(response => {
+          this.albums = response.data
+        })
     },
     getMusicServices: function () {
-      this.musicServices = sourceData.musicServices
+      axios.get('http://localhost:5000/music_services')
+        .then(response => {
+          this.musicServices = response.data
+        })
     }
   },
   mounted () {
