@@ -26,7 +26,7 @@
 
 <script>
 import AlbumCard from './AlbumCard.vue'
-import NavBar from './NavBar.vue'
+import NavBar from './utils/NavBar.vue'
 
 export default {
   components: {

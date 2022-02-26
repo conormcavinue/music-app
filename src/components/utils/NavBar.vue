@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import DoubleRangeSlider from '@/components/DoubleRangeSlider.vue'
+import DoubleRangeSlider from '@/components/utils/DoubleRangeSlider.vue'
 
 export default {
   props: ['showFilters'],

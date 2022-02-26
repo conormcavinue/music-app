@@ -17,15 +17,15 @@
       <h4>Date Added</h4>
       <p class="mx-auto">{{ epochToDate(album.publishedAt) }}</p>
       <h4>Album Score</h4>
-      <p class="mx-auto">{{ album.albumVote }}</p>
+      <p class="mx-auto">{{ album.albumvote }}</p>
     </div>
-  <vote-buttons :album="album"/>
+  <vote-buttons :album="album" @albumVote="albumVote"/>
   </div>
 </template>
 
 <script>
-import sourceData from '@/data.json'
-import NavBar from '@/components/NavBar.vue'
+import axios from 'axios'
+import NavBar from '@/components/utils/NavBar.vue'
 import VoteButtons from '@/components/VoteButtons.vue'
 
 export default {
@@ -41,21 +41,37 @@ export default {
   },
   data: function () {
     return {
-      albums: []
-    }
-  },
-  computed: {
-    album () {
-      return this.albums.find(x => x.id === this.id)
+      album: ''
     }
   },
   methods: {
-    getAlbums: function () {
-      this.albums = sourceData.albums
+    getAlbum: function () {
+      axios.get('http://localhost:83/album/' + this.id)
+        .then(response => {
+          this.album = response.data
+        })
+    },
+    albumVote: function (value) {
+      let vote = ''
+      if (value === 1) {
+        vote = 'upvote'
+      } else {
+        vote = 'downvote'
+      }
+      axios.post('http://localhost:83/' + vote, null, {
+        params: {
+          album_id: this.album.id
+        }
+      })
+        .then(
+          setTimeout(function () {
+            this.getAlbum()
+          }.bind(this), 200)
+        )
     }
   },
-  beforeMount: function () {
-    this.getAlbums()
+  mounted: function () {
+    this.getAlbum()
   }
 
 }

@@ -18,13 +18,13 @@ export default {
   },
   methods: {
     getAlbums: function () {
-      axios.get('http://localhost:5000/albums')
+      axios.get('http://localhost:83/albums')
         .then(response => {
           this.albums = response.data
         })
     },
     getMusicServices: function () {
-      axios.get('http://localhost:5000/music_services')
+      axios.get('http://localhost:83/music_services')
         .then(response => {
           this.musicServices = response.data
         })

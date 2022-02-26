@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ZBRangeSlider from '../assets/js/ZbRangeSlider'
+import ZBRangeSlider from '@/assets/js/ZbRangeSlider'
 
 export default {
   props: {
