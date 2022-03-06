@@ -147,13 +147,13 @@
           "id":"13",
           "musicServiceId":"1",
           "url":"https://open.spotify.com/album/3U9pQYTgcV3nrWFDlnZWlJ?si=aSm413ZOTOOj-Mc_UaHHew",
-          "albumId":"6"
+          "albumId":"7"
         },
         {
           "id":"14",
           "musicServiceId":"2",
           "url":"https://music.youtube.com/playlist?list=OLAK5uy_kTow0tjQDbK2klRuBKJTWhjqGWyehQfHE&feature=share",
-          "albumId":"6"
+          "albumId":"7"
         }
       ],
       "imageLink":"https://i.scdn.co/image/ab67616d0000b2732c12e9fa68489cc7f7fdb102",
@@ -170,19 +170,65 @@
           "id":"15",
           "musicServiceId":"1",
           "url":"https://open.spotify.com/album/2vY03PfKPFUUM1FA2lgmC2?si=7KDzr2aLRmO0z4Gb73RH7Q",
-          "albumId":"6"
+          "albumId":"8"
         },
         {
           "id":"16",
           "musicServiceId":"2",
           "url":"https://music.youtube.com/playlist?list=OLAK5uy_n9eofVyWLpabp-cM4Gwks9IIsLDdtE6Yk&feature=share",
-          "albumId":"6"
+          "albumId":"8"
         }
       ],
       "imageLink":"https://media.pitchfork.com/photos/5929c06d5e6ef95969323550/1:1/w_600/f50f99fa.jpg",
       "releaseYear":2016,
       "albumVote": 0,
       "publishedAt":1644710400
+    },
+    {
+      "id":"9",
+      "albumName":"Belgica Soundtrack",
+      "albumArtist":"Soulwax",
+      "links":[
+        {
+          "id":"17",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/4RTlKxb8L92rpQ2pwH09hV?si=kQ5AZQLxTUK2apQ8WwgX1Q",
+          "albumId":"9"
+        },
+        {
+          "id":"18",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_nXfM4CSH-Rx4YvzaT8uTZTFWXA_DU4gkI&feature=share",
+          "albumId":"9"
+        }
+      ],
+      "imageLink":"https://media.pitchfork.com/photos/5929b46cea9e61561daa6c49/1:1/w_450%2Cc_limit/822490c3.jpg",
+      "releaseYear":2016,
+      "albumVote": 0,
+      "publishedAt":1645920000
+    },
+    {
+      "id":"10",
+      "albumName":"This Land",
+      "albumArtist":"Gary Clark Jr.",
+      "links":[
+        {
+          "id":"19",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/6pwdy6oQdwSQo8XOfpfAJJ?si=0bC44ByOQB-HfwelWy68zQ",
+          "albumId":"10"
+        },
+        {
+          "id":"20",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_n-lCMbG10Xt1rOa3pPO6S-S10eLxlAIE0&feature=share",
+          "albumId":"10"
+        }
+      ],
+      "imageLink":"https://media.pitchfork.com/photos/5c646ef94ec615773615ce11/1:1/w_320,c_limit/GaryClarkJr_ThisLand.jpg",
+      "releaseYear":2019,
+      "albumVote": 0,
+      "publishedAt":1646524800
     }
   ],
   "musicServices": [
