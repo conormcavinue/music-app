@@ -229,6 +229,29 @@
       "releaseYear":2019,
       "albumVote": 0,
       "publishedAt":1646524800
+    },
+    {
+      "id":"11",
+      "albumName":"Topical Dancer",
+      "albumArtist":"Charlotte Adigery & Bolis Pupul",
+      "links":[
+        {
+          "id":"21",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/4ivk3u8J7qg7YoWUZlnGNz?si=IwFL9QwYSQWlarIoLhTfMg",
+          "albumId":"10"
+        },
+        {
+          "id":"22",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_n_Y2D8M7ZbPsKodAis7r064zkKs6KCuW8&feature=share",
+          "albumId":"10"
+        }
+      ],
+      "imageLink":"https://media.pitchfork.com/photos/6183e9c86e2d11a8436b3121/1:1/w_450%2Cc_limit/Topical-Dancer.jpeg",
+      "releaseYear":2022,
+      "albumVote": 0,
+      "publishedAt":1646697600
     }
   ],
   "musicServices": [
