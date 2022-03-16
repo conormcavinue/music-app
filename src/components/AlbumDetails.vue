@@ -41,7 +41,8 @@ export default {
   },
   data: function () {
     return {
-      album: ''
+      album: '',
+      polling: null
     }
   },
   methods: {
@@ -52,15 +53,10 @@ export default {
         })
     },
     albumVote: function (value) {
-      let vote = ''
-      if (value === 1) {
-        vote = 'upvote'
-      } else {
-        vote = 'downvote'
-      }
-      axios.post('http://localhost:83/' + vote, null, {
+      axios.post('http://localhost:83/vote', null, {
         params: {
-          album_id: this.album.id
+          album_id: this.album.id,
+          value: value
         }
       })
         .then(
@@ -68,10 +64,21 @@ export default {
             this.getAlbum()
           }.bind(this), 200)
         )
+    },
+    pollData: function () {
+      this.polling = setInterval(() => {
+        this.getAlbum()
+      }, 3000)
     }
   },
   mounted: function () {
     this.getAlbum()
+  },
+  created () {
+    this.pollData()
+  },
+  beforeUnmount () {
+    clearInterval(this.polling)
   }
 
 }

@@ -19,7 +19,13 @@ export default {
   props: ['album'],
   methods: {
     voteAlbum: function (value) {
-      this.$emit('albumVote', value, this.album.id)
+      if (this.vote === -1) {
+        this.$emit('albumVote', 2, this.album.id)
+      } else if (this.vote === 1) {
+        this.$emit('albumVote', -2, this.album.id)
+      } else {
+        this.$emit('albumVote', value, this.album.id)
+      }
       this.vote = value
     }
   },
