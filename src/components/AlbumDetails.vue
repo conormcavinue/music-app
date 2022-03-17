@@ -15,11 +15,11 @@
       <h4>Release Year</h4>
       <p class="mx-auto">{{ album.releaseYear }}</p>
       <h4>Date Added</h4>
-      <p class="mx-auto">{{ epochToDate(album.publishedAt) }}</p>
+      <p class="mx-auto"><base-date :timestamp="album.publishedAt" /></p>
       <h4>Album Score</h4>
       <p class="mx-auto">{{ album.albumvote }}</p>
     </div>
-  <vote-buttons :album="album" @albumVote="albumVote"/>
+  <vote-buttons :album="album" @vote="albumVote"/>
   </div>
 </template>
 

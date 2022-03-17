@@ -7,9 +7,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap/dist/js/bootstrap.js'
 import 'animate.css/animate.css'
 import 'vue3-date-time-picker/dist/main.css'
-import epochToDate from '@/plugins/epochToDate.js'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import BaseDate from '@/components/utils/BaseDate.vue'
 import DatePicker from 'vue3-date-time-picker'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -22,6 +22,6 @@ library.add(far)
 createApp(App)
   .component('font-awesome-icon', FontAwesomeIcon)
   .component('datepicker', DatePicker)
+  .component('BaseDate', BaseDate)
   .use(router)
-  .use(epochToDate)
   .mount('#app')

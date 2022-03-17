@@ -8,11 +8,11 @@
     <h4>{{ albumDetails.albumArtist }}</h4>
     <router-link :to="{name: 'Albums', params: {id: albumDetails.id}}" tag="button" class="btn btn-outline-secondary">Details</router-link>
   </div>
-  <!-- <div class="row d-flex flex-wrap align-items-center pb-2">
+  <div class="row d-flex flex-wrap align-items-center pb-2">
     <div v-for="link, key in albumDetails.links" :key="key" class="col">
       <div v-html="$parent.$parent.generatedLink(link)"></div>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <script>

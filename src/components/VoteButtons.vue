@@ -20,11 +20,11 @@ export default {
   methods: {
     voteAlbum: function (value) {
       if (this.vote === -1) {
-        this.$emit('albumVote', 2, this.album.id)
+        this.$emit('vote', 2, this.album.id)
       } else if (this.vote === 1) {
-        this.$emit('albumVote', -2, this.album.id)
+        this.$emit('vote', -2, this.album.id)
       } else {
-        this.$emit('albumVote', value, this.album.id)
+        this.$emit('vote', value, this.album.id)
       }
       this.vote = value
     }
