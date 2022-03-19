@@ -19,14 +19,14 @@
       <h4>Album Score</h4>
       <p class="mx-auto">{{ album.albumvote }}</p>
     </div>
-  <vote-buttons :album="album" @vote="albumVote"/>
+  <vote-buttons :album="album"/>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 import NavBar from '@/components/utils/NavBar.vue'
 import VoteButtons from '@/components/VoteButtons.vue'
+import store from '@/store/albums-state.js'
 
 export default {
   props: {
@@ -41,38 +41,20 @@ export default {
   },
   data: function () {
     return {
-      album: '',
       polling: null
     }
   },
   methods: {
-    getAlbum: function () {
-      axios.get('http://localhost:83/album/' + this.id)
-        .then(response => {
-          this.album = response.data
-        })
-    },
-    albumVote: function (value) {
-      axios.post('http://localhost:83/vote', null, {
-        params: {
-          album_id: this.album.id,
-          value: value
-        }
-      })
-        .then(
-          setTimeout(function () {
-            this.getAlbum()
-          }.bind(this), 200)
-        )
-    },
     pollData: function () {
       this.polling = setInterval(() => {
-        this.getAlbum()
+        store.dispatch('updateAlbums')
       }, 3000)
     }
   },
-  mounted: function () {
-    this.getAlbum()
+  computed: {
+    album: function () {
+      return store.getters.allAlbums.find(a => a.id === parseInt(this.id))
+    }
   },
   created () {
     this.pollData()

@@ -6,33 +6,13 @@
 </template>
 
 <script>
-import axios from 'axios'
+import store from '@/store/albums-state.js'
 
 export default {
   name: 'App',
-  data: function () {
-    return {
-      albums: [],
-      musicServices: []
-    }
-  },
-  methods: {
-    getAlbums: function () {
-      axios.get('http://localhost:83/albums')
-        .then(response => {
-          this.albums = response.data
-        })
-    },
-    getMusicServices: function () {
-      axios.get('http://localhost:83/music_services')
-        .then(response => {
-          this.musicServices = response.data
-        })
-    }
-  },
-  mounted () {
-    this.getAlbums()
-    this.getMusicServices()
+  created () {
+    store.dispatch('fetchAlbums')
+    store.dispatch('fetchMusicServices')
   }
 }
 </script>

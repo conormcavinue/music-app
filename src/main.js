@@ -7,6 +7,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap/dist/js/bootstrap.js'
 import 'animate.css/animate.css'
 import 'vue3-date-time-picker/dist/main.css'
+import store from '@/store/albums-state.js'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import BaseDate from '@/components/utils/BaseDate.vue'
@@ -24,4 +25,5 @@ createApp(App)
   .component('datepicker', DatePicker)
   .component('BaseDate', BaseDate)
   .use(router)
+  .use(store)
   .mount('#app')

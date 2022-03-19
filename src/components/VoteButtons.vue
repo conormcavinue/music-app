@@ -10,37 +10,53 @@
 </template>
 
 <script>
+import axios from 'axios'
+import store from '@/store/albums-state.js'
+
 export default {
-  data: function () {
-    return {
-      vote: 0
-    }
-  },
   props: ['album'],
   methods: {
+    updateAlbums: function () {
+      store.dispatch('updateAlbums')
+    },
     voteAlbum: function (value) {
-      if (this.vote === -1) {
-        this.$emit('vote', 2, this.album.id)
-      } else if (this.vote === 1) {
-        this.$emit('vote', -2, this.album.id)
+      if (this.album.currentVote === -1) {
+        this.albumVote(2, 1)
+      } else if (this.album.currentVote === 1) {
+        this.albumVote(-2, -1)
       } else {
-        this.$emit('vote', value, this.album.id)
+        this.albumVote(value, value)
       }
-      this.vote = value
+    },
+    albumVote: function (value, vote) {
+      axios.post('http://localhost:83/vote', null, {
+        params: {
+          album_id: this.album.id,
+          value: value
+        }
+      })
+        .then(
+          store.commit('voteAlbum', { albumId: this.album.id, vote: vote })
+        )
+        .then(
+          setTimeout(function () {
+            this.updateAlbums()
+          }.bind(this), 200)
+        )
     }
   },
   computed: {
     thumbsDownIcon: function () {
-      return this.vote === -1 ? ['fas', 'thumbs-down'] : ['far', 'thumbs-down']
+      return store.getters.allAlbums.find(a => a.id === this.album.id).currentVote === -1 ? ['fas', 'thumbs-down'] : ['far', 'thumbs-down']
     },
     thumbsUpIcon: function () {
-      return this.vote === 1 ? ['fas', 'thumbs-up'] : ['far', 'thumbs-up']
+      return store.getters.allAlbums.find(a => a.id === this.album.id).currentVote === 1 ? ['fas', 'thumbs-up'] : ['far', 'thumbs-up']
     },
     thumbsDownClass: function () {
-      return 'thumbsDownClassColour ' + (this.vote !== -1 ? 'enabled' : 'disabled')
+      return 'thumbsDownClassColour ' + (store.getters.allAlbums.find(a => a.id === this.album.id).currentVote !== -1 ? 'enabled' : 'disabled')
     },
     thumbsUpClass: function () {
-      return 'thumbsUpClassColour ' + (this.vote !== 1 ? 'enabled' : 'disabled')
+      return 'thumbsUpClassColour ' + (store.getters.allAlbums.find(a => a.id === this.album.id).currentVote !== 1 ? 'enabled' : 'disabled')
     }
   }
 }

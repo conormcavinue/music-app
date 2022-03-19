@@ -27,7 +27,7 @@
             </ul>
           </li>
         </ul>
-        <button v-if="filters.length" @click="clearFilters()" class="btn btn-outline-danger mr-auto ml-1">Clear Filters</button>
+        <button v-if="filters && filters.length" @click="clearFilters()" class="btn btn-outline-danger mr-auto ml-1">Clear Filters</button>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="filterText">
         </form>
@@ -37,7 +37,7 @@
       class="align-items-center pb-3"
       enter-active-class="animate__animated animate__fadeIn"
       leave-active-class="animate__animated animate__fadeOut">
-      <div class="container" v-if="filters.includes('releaseYear')">
+      <div class="container" v-if="filters && filters.includes('releaseYear')">
         <div class="mb-3 mx-auto min-half-width">
             <h4>Albums Released Between</h4>
             <input type="text" id="formMin" class="form-control mx-2 text-center"
@@ -52,7 +52,7 @@
       class="align-items-center pb-3"
       enter-active-class="animate__animated animate__fadeIn"
       leave-active-class="animate__animated animate__fadeOut">
-      <div class="container" v-if="filters.includes('weekAdded')">
+      <div class="container" v-if="filters && filters.includes('weekAdded')">
         <div class="mb-3 mx-auto min-half-width">
             <h4>Week Added</h4>
             <input type="text" id="formMin" class="form-control mx-2 text-center"
@@ -67,7 +67,7 @@
       class="align-items-center pb-3"
       enter-active-class="animate__animated animate__fadeIn"
       leave-active-class="animate__animated animate__fadeOut">
-      <div class="container" v-if="filters.includes('dateAdded')">
+      <div class="container" v-if="filters && filters.includes('dateAdded')">
         <div class="mb-3 mx-auto min-quarter-width">
             <h4>Date Added: Select Date Range</h4>
             <datepicker
@@ -85,17 +85,12 @@
 
 <script>
 import DoubleRangeSlider from '@/components/utils/DoubleRangeSlider.vue'
+import store from '@/store/albums-state.js'
 
 export default {
   props: ['showFilters'],
   data: function () {
     return {
-      startWeek: 1,
-      endWeek: this.currentWeek(),
-      minYear: 1950,
-      maxYear: 2022,
-      dateRange: null,
-      filterText: '',
       filters: []
     }
   },
@@ -119,43 +114,66 @@ export default {
   },
   computed: {
     filterDropdownClass: function () {
-      return this.filters.length ? 'navbar-nav' : 'navbar-nav mr-auto'
+      return store.getters.stateFilters && store.getters.stateFilters.length ? 'navbar-nav' : 'navbar-nav mr-auto'
+    },
+    filterText: {
+      get () {
+        return store.getters.stateFilterText
+      },
+      set (value) {
+        store.commit('setFilterText', value)
+      }
+    },
+    startWeek: {
+      get () {
+        return store.getters.stateStartWeek
+      },
+      set (value) {
+        store.commit('setStartWeek', value)
+      }
+    },
+    endWeek: {
+      get () {
+        return store.getters.stateEndWeek
+      },
+      set (value) {
+        store.commit('setEndWeek', value)
+      }
+    },
+    minYear: {
+      get () {
+        return store.getters.stateMinYear
+      },
+      set (value) {
+        store.commit('setMinYear', value)
+      }
+    },
+    maxYear: {
+      get () {
+        return store.getters.stateMaxYear
+      },
+      set (value) {
+        store.commit('setMaxYear', value)
+      }
+    },
+    dateRange: {
+      get () {
+        return store.getters.stateDateRange
+      },
+      set (value) {
+        store.commit('setDateRange', value)
+      }
     }
   },
   watch: {
     filters (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.$emit('setFilters', this.filters)
+        store.commit('setFilters', this.filters)
       }
     },
     filterText (newVal, oldVal) {
       if (newVal !== oldVal) {
-        this.$emit('setFilterText', this.filterText)
-      }
-    },
-    dateRange (newVal, oldVal) {
-      if (newVal !== oldVal) {
-        this.$emit('setDateRange', this.dateRange)
-      }
-    },
-    startWeek (newVal, oldVal) {
-      if (newVal !== oldVal) {
-        this.$emit('setStartWeek', this.startWeek)
-      }
-    },
-    endWeek (newVal, oldVal) {
-      if (newVal !== oldVal) {
-        this.$emit('setEndWeek', this.endWeek)
-      }
-    },
-    minYear (newVal, oldVal) {
-      if (newVal !== oldVal) {
-        this.$emit('setMinYear', this.minYear)
-      }
-    },
-    maxYear (newVal, oldVal) {
-      if (newVal !== oldVal) {
-        this.$emit('setMaxYear', this.maxYear)
+        store.commit('setFilterText', this.filterText)
       }
     }
   }
