@@ -35,11 +35,6 @@ export default {
     NavBar
   },
   props: ['albums', 'musicServices'],
-  methods: {
-    generatedLink: function (link) {
-      return '<a href="' + link.url + '" target="_blank"><img class="img-fluid img-max" src="' + this.musicServices.find(x => x.musicServiceName === link.musicServiceName).imgSrc + '" /></a>'
-    }
-  },
   computed: {
     filteredAlbums: function () {
       return store.getters.filteredAlbums

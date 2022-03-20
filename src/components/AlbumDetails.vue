@@ -9,6 +9,7 @@
         <img :src="album.imageLink" class="img-width"/>
       </div>
     </div>
+    <music-service-links :albumDetails="album" />
     <div>
       <h4>Artist</h4>
       <p class="mx-auto">{{ album.albumArtist }}</p>
@@ -27,6 +28,7 @@
 import NavBar from '@/components/utils/NavBar.vue'
 import VoteButtons from '@/components/VoteButtons.vue'
 import store from '@/store/albums-state.js'
+import MusicServiceLinks from '@/components/MusicServiceLinks'
 
 export default {
   props: {
@@ -37,7 +39,8 @@ export default {
   },
   components: {
     NavBar,
-    VoteButtons
+    VoteButtons,
+    MusicServiceLinks
   },
   data: function () {
     return {

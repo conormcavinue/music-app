@@ -56,8 +56,10 @@ const store = createStore({
         .sort((x, y) => (x.publishedAt < y.publishedAt) ? 1 : -1)
     },
     allAlbums (state, getters) {
-      const albums = state.albums
-      return albums
+      return state.albums
+    },
+    allMusicServices (state, getters) {
+      return state.musicServices
     },
     stateFilters (state, getters) {
       return state.filters
@@ -83,25 +85,22 @@ const store = createStore({
   },
   actions: { // methods
     fetchAlbums ({ commit }) {
-      axios.get('http://54.72.106.222:5000/albums')
+      axios.get('http://localhost:83/albums')
         .then(response => {
           commit('setAlbums', response.data)
         })
     },
     updateAlbums ({ commit }) {
-      axios.get('http://54.72.106.222:5000/albums')
+      axios.get('http://localhost:83/albums')
         .then(response => {
           commit('updateAlbumVotes', response.data)
         })
     },
     fetchMusicServices ({ commit }) {
-      axios.get('http://54.72.106.222:5000/music_services')
+      axios.get('http://localhost:83/music_services')
         .then(response => {
           commit('setMusicServices', response.data)
         })
-    },
-    populateNavbar ({ commit }) {
-
     }
   },
   mutations: { // set and update state
@@ -111,9 +110,6 @@ const store = createStore({
       }
     },
     setAlbums (state, albums) {
-      for (const album in albums) {
-        albums[album].vote = 0
-      }
       state.albums = albums
     },
     setMusicServices (state, musicServices) {
