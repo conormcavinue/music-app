@@ -239,19 +239,42 @@
           "id":"21",
           "musicServiceId":"1",
           "url":"https://open.spotify.com/album/4ivk3u8J7qg7YoWUZlnGNz?si=IwFL9QwYSQWlarIoLhTfMg",
-          "albumId":"10"
+          "albumId":"11"
         },
         {
           "id":"22",
           "musicServiceId":"2",
           "url":"https://music.youtube.com/playlist?list=OLAK5uy_n_Y2D8M7ZbPsKodAis7r064zkKs6KCuW8&feature=share",
-          "albumId":"10"
+          "albumId":"11"
         }
       ],
       "imageLink":"https://media.pitchfork.com/photos/6183e9c86e2d11a8436b3121/1:1/w_450%2Cc_limit/Topical-Dancer.jpeg",
       "releaseYear":2022,
       "albumVote": 0,
       "publishedAt":1646697600
+    },
+    {
+      "id":"12",
+      "albumName":"Cinema",
+      "albumArtist":"Ludovico Einaudi",
+      "links":[
+        {
+          "id":"21",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/2zMtXfGkXIlc3dWXxHmSEX?si=yAk3P7LWRHSM_eXBNmVN3Q",
+          "albumId":"12"
+        },
+        {
+          "id":"22",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_ncvLhR6l2-S5toWSeh99o_HdERME8ZbgM&feature=share",
+          "albumId":"12"
+        }
+      ],
+      "imageLink":"https://www.udiscovermusic.com/wp-content/uploads/2021/04/LudovicoEinaudi_Cinema_cover.jpg",
+      "releaseYear":2021,
+      "albumVote": 0,
+      "publishedAt":1647734400
     }
   ],
   "musicServices": [
