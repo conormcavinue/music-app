@@ -275,6 +275,144 @@
       "releaseYear":2021,
       "albumVote": 0,
       "publishedAt":1647734400
+    },
+    {
+      "id":"13",
+      "albumName":"Every Valley",
+      "albumArtist":"Public Service Broadcasting",
+      "links":[
+        {
+          "id":"23",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/3jS2Xu9OqOicKjAKnyjRZL?si=9z-8KClqSHOjuOFWZdBzmQ",
+          "albumId":"13"
+        },
+        {
+          "id":"24",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_lnbnOy-8078_uDeR1g9w127W7iOUZdAEw&feature=share",
+          "albumId":"13"
+        }
+      ],
+      "imageLink":"https://www.irishtimes.com/polopoly_fs/1.3143035.1499168591!/image/image.jpg",
+      "releaseYear":2017,
+      "albumVote": 0,
+      "publishedAt":1648339200
+    },
+    {
+      "id":"14",
+      "albumName":"Skeleton Tree",
+      "albumArtist":"Nick Cave & The Bad Seeds",
+      "links":[
+        {
+          "id":"25",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/34xaLN7rDecGEK5UGIVbeJ?si=1yso3vozSSKiAJ8sukTlxQ",
+          "albumId":"14"
+        },
+        {
+          "id":"26",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_ng_SvY9YHJKt4AqNWi8fTGZcrNeuWn2ao&feature=share",
+          "albumId":"14"
+        }
+      ],
+      "imageLink":"https://media.pitchfork.com/photos/5929bce2abf31b7dc7155e10/1:1/w_600/208541ce.jpg",
+      "releaseYear":2016,
+      "albumVote": 0,
+      "publishedAt":1648940400
+    },
+    {
+      "id":"15",
+      "albumName":"DISCO4 :: PART II",
+      "albumArtist":"HEALTH",
+      "links":[
+        {
+          "id":"27",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/4pk3IXbfaU0cK7oHuEdbEJ?si=MN7eAPMCSvSwPbjk6wVzlw",
+          "albumId":"12"
+        },
+        {
+          "id":"28",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_kngHpVZ7rHG73pbkyyRdHs6xRZL7x9TtI&feature=share",
+          "albumId":"15"
+        }
+      ],
+      "imageLink":"https://i0.wp.com/thesoundboardreviews.com/wp-content/uploads/2022/03/img_0496.jpg",
+      "releaseYear":2022,
+      "albumVote": 0,
+      "publishedAt":1649545200
+    },
+    {
+      "id":"16",
+      "albumName":"Just For A Day",
+      "albumArtist":"Slowdive",
+      "links":[
+        {
+          "id":"29",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/7761KE2C9rH1QO9WAE1Ysb?si=xEePRaGDSZ6ykaM5bZ06Dw",
+          "albumId":"16"
+        },
+        {
+          "id":"30",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_mCnOditSwpipmw8HYJGyo24VCVFXsoQM0&feature=share",
+          "albumId":"16"
+        }
+      ],
+      "imageLink":"https://i.scdn.co/image/ab67616d0000b27320b889419f0e7986bec38d66",
+      "releaseYear":1991,
+      "albumVote": 0,
+      "publishedAt":1650150000
+    },
+    {
+      "id":"17",
+      "albumName":"Are We There",
+      "albumArtist":"Sharon Van Etten",
+      "links":[
+        {
+          "id":"31",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/6EQWzHbd3EYO8J4EAIJst4?si=Igm2UjkVQ8S4wTPjiTX24Q",
+          "albumId":"17"
+        },
+        {
+          "id":"32",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_m6tUkhX4Nlli7rNFpGy0-w1XY8qf7WiU0&feature=share",
+          "albumId":"17"
+        }
+      ],
+      "imageLink":"https://media.pitchfork.com/photos/5929a7ceea9e61561daa568c/1:1/w_600/2592e138.jpg",
+      "releaseYear":2014,
+      "albumVote": 0,
+      "publishedAt":1650754800
+    },
+    {
+      "id":"18",
+      "albumName":"Remind Me Tomorrow",
+      "albumArtist":"Sharon Van Etten",
+      "links":[
+        {
+          "id":"31",
+          "musicServiceId":"1",
+          "url":"https://open.spotify.com/album/4bfvR9TMwCm2tzXpboLH3t?si=SwvJtgmfRLyABPX-hlExvg",
+          "albumId":"18"
+        },
+        {
+          "id":"32",
+          "musicServiceId":"2",
+          "url":"https://music.youtube.com/playlist?list=OLAK5uy_nMuVKadw2dvOcO-nx9dz2p9TsUoURcScE&feature=share",
+          "albumId":"18"
+        }
+      ],
+      "imageLink":"https://media.pitchfork.com/photos/5c1ba81a275359558e038a77/1:1/w_600/remind%20me%20tomorrow_sharon%20van%20etten.jpg",
+      "releaseYear":2019,
+      "albumVote": 0,
+      "publishedAt":1650754800
     }
   ],
   "musicServices": [
